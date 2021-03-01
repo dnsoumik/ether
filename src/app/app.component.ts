@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { CdkDragDrop, moveItemInArray, copyArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-root',
@@ -9,26 +9,52 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 export class AppComponent {
 
   title = 'demo';
+
+  componentList = {
+    'basic': [
+      {
+        'id': 'input',
+        'label': 'Text Field',
+        'icon': 'input',
+      },
+      {
+        'id': 'button',
+        'label': 'Mat Raised Button',
+        'icon': 'smart_button'
+      },
+      {
+        'id': 'checkbox',
+        'label': 'Checkbox',
+        'icon': 'check_box',
+      }
+    ]
+  };
+
   mainData = {
     "data": [
       {
         "id": "input",
-        "label": "First name"
+        "label": "First name",
+        "expand": false,
       },
       {
         "id": "input",
-        "label": "Last name"
+        "label": "Last name",
+        "expand": false,
       },
       {
         "id": "input",
+        "expand": false,
         "label": "Phone number"
       },
       {
         "id": "input",
+        "expand": false,
         "label": "Email (optional)"
       },
       {
         "id": "button",
+        "expand": false,
         "label": "Submit"
       }
     ],
@@ -62,6 +88,35 @@ export class AppComponent {
 
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.mainData.data, event.previousIndex, event.currentIndex);
+  }
+
+  
+  drop2(event: any) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      copyArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
+    }
+  }
+
+  currentSelectedIndex: number = null;
+  onSelected(i: number, item: any) {
+    console.log(i, item);
+    if (this.currentSelectedIndex == null) {
+      this.currentSelectedIndex = i;
+      this.mainData.data[i].expand = true;
+    } else {
+      this.currentSelectedIndex = this.currentSelectedIndex;
+      this.mainData.data[this.currentSelectedIndex].expand = false;
+
+      this.currentSelectedIndex = i;
+      this.mainData.data[i].expand = true;
+    }
   }
 
 
