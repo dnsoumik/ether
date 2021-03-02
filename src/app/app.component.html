@@ -44,9 +44,7 @@
             </div>
             <div fxLayout="column" style="width: 100%;">
               <div style="padding: 20px;">
-                <app-button [title]="item.label" style="width: 100%;" *ngIf="item.id == 'button'"></app-button>
-                <app-input [title]="item.label" style="width: 100%;" *ngIf="item.id == 'input'"></app-input>
-                <app-checkbox *ngIf="item.id == 'checkbox'"></app-checkbox>
+                <app-vessel [value]="item"></app-vessel>
               </div>
               <div [fxShow]='item.expand' style="width: 100%;">
                 <!-- <mat-expansion-panel class="mat-elevation-z1" (opened)="panelOpenState = true"
@@ -66,18 +64,28 @@
                       </svg>
                     </div>
                   </mat-expansion-panel-header> -->
-                  <div style="width: 100%;">
-                    <div fxFlex="100" fxLayoutAlign="center center">
-                      <button matTooltip="Edit" mat-icon-button>
-                        <mat-icon>edit</mat-icon>
-                      </button>
-                      <button mat-icon-button matTooltip="Duplicate">
-                        <mat-icon>content_copy</mat-icon>
-                      </button>
-                      <mat-slide-toggle color="warn">Required</mat-slide-toggle>
-                    </div>
-                    <div></div>
+                <div fxLayout="column" style="width: 100%;">
+                  <b style="padding-left: 20px;">Settings</b>
+                  <div style="padding: 20px;">
+                    <mat-form-field style="width: 100%;" appearance="outline">
+                      <mat-label>Change the label</mat-label>
+                      <input matInput [(ngModel)]="item.label">
+                    </mat-form-field>
                   </div>
+                  <div fxFlex="100" fxLayoutAlign="center center">
+                    <button matTooltip="Edit" mat-icon-button>
+                      <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button matTooltip="Duplicate">
+                      <mat-icon>content_copy</mat-icon>
+                    </button>
+                    <button mat-icon-button matTooltip="Delete" color="warn" (click)="onDelete(i, item)">
+                      <mat-icon>delete</mat-icon>
+                    </button>
+                    <mat-slide-toggle color="warn">Required</mat-slide-toggle>
+                  </div>
+                  <div></div>
+                </div>
                 <!-- </mat-expansion-panel> -->
               </div>
               <div class="example-custom-placeholder" *cdkDragPlaceholder fxLayoutAlign="center center">

@@ -22,13 +22,15 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { CheckboxComponent } from './components/checkbox/checkbox.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { VesselComponent } from './components/vessel/vessel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InputComponent,
     ButtonComponent,
-    CheckboxComponent
+    CheckboxComponent,
+    VesselComponent
   ],
   imports: [
     BrowserModule,
