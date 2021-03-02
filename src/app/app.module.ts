@@ -23,6 +23,8 @@ import { CheckboxComponent } from './components/checkbox/checkbox.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { VesselComponent } from './components/vessel/vessel.component';
+import { FormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,8 @@ import { VesselComponent } from './components/vessel/vessel.component';
     MatExpansionModule,
     MatCheckboxModule,
     MatSlideToggleModule,
+    FormsModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

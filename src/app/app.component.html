@@ -38,41 +38,18 @@
         <div id="preview_container" class="example-list" style="width: 100%;" [style]="mainData.style" cdkDropList
           #doneList="cdkDropList" [cdkDropListData]="mainData.data" [cdkDropListConnectedTo]="[todoList]"
           (cdkDropListDropped)="drop2($event)">
-          <div fxLayout="row" fxLayoutAlign="space-around stretch" class="example-box mat-elevation-z3"
+          <div fxLayout="row" fxLayoutAlign="space-evenly stretch" style="width: 100%;" class="example-box"
             (click)="onSelected(i, intex)" *ngFor="let item of mainData.data; let i = index;" cdkDrag>
-            <div [fxShow]='item.expand' style="height: auto; background-color: blue; color: blue; width: 10px;">
-            </div>
-            <div fxLayout="column" style="width: 100%;">
-              <div style="padding: 20px;">
-                <app-vessel [value]="item"></app-vessel>
-              </div>
-              <div [fxShow]='item.expand' style="width: 100%;">
-                <!-- <mat-expansion-panel class="mat-elevation-z1" (opened)="panelOpenState = true"
-                  (closed)="panelOpenState = false">
-                  <mat-expansion-panel-header>
-                    <mat-panel-title>
-                      Action
-                    </mat-panel-title>
-                    <mat-panel-description>
-                    </mat-panel-description>
-                    <div class="example-handle" cdkDragHandle>
-                      <svg width="15px" fill="currentColor" viewBox="0 0 24 24">
-                        <path
-                          d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z">
-                        </path>
-                        <path d="M0 0h24v24H0z" fill="none"></path>
-                      </svg>
-                    </div>
-                  </mat-expansion-panel-header> -->
-                <div fxLayout="column" style="width: 100%;">
-                  <b style="padding-left: 20px;">Settings</b>
-                  <div style="padding: 20px;">
-                    <mat-form-field style="width: 100%;" appearance="outline">
-                      <mat-label>Change the label</mat-label>
-                      <input matInput [(ngModel)]="item.label">
-                    </mat-form-field>
-                  </div>
-                  <div fxFlex="100" fxLayoutAlign="center center">
+            <div class="component_viewer" fxLayout="column" style="width: 100%;">
+              <!-- <mat-card class="mat-elevation-z4" fxLayout="column" fxLayoutAlign="space-between center"
+                [fxShow]="item.expand" style="width: 100%; padding: 5px; margin-bottom: 20px; margin-top: 20px;">
+                <div style="width: 100%;" fxLayout="row wrap" fxLayoutAlign="space-between center">
+                  <div fxFlex="10"></div>
+                  <b fxFlex="58" style="text-align: center; font-size: 9pt;">No.{{i+1}}  Action mode -> [ {{item.label}} ]</b>
+                  <div fxFlex="30" fxFlex.lt-sm="100" fxLayout="row wrap" fxLayoutAlign="end end">
+                    <button matTooltip="Edit" mat-icon-button (click)="onChangeSave(i, item)">
+                      <mat-icon>done_outline</mat-icon>
+                    </button>
                     <button matTooltip="Edit" mat-icon-button>
                       <mat-icon>edit</mat-icon>
                     </button>
@@ -82,21 +59,41 @@
                     <button mat-icon-button matTooltip="Delete" color="warn" (click)="onDelete(i, item)">
                       <mat-icon>delete</mat-icon>
                     </button>
-                    <mat-slide-toggle color="warn">Required</mat-slide-toggle>
                   </div>
-                  <div></div>
                 </div>
-                <!-- </mat-expansion-panel> -->
-              </div>
-              <div class="example-custom-placeholder" *cdkDragPlaceholder fxLayoutAlign="center center">
-                <mat-icon>keyboard_arrow_left</mat-icon>
+                <div style="width: 80%; padding-bottom: 30px;">
+                  <app-vessel [value]="item"></app-vessel>
+                </div>
+              </mat-card> -->
+              <div class="component_viewer" fxLayout="column" style="width: 100%;">
                 <div>
-                  Drop here
+                  <div style="padding: 5px; padding-left: 20px; padding-right: 20px;">
+                    <app-vessel [value]="item"></app-vessel>
+                  </div>
                 </div>
-                <mat-icon>keyboard_arrow_right</mat-icon>
+                <div class="example-custom-placeholder" *cdkDragPlaceholder fxLayoutAlign="center center">
+                  <mat-icon>keyboard_arrow_left</mat-icon>
+                  <div>
+                    Drop here
+                  </div>
+                  <mat-icon>keyboard_arrow_right</mat-icon>
+                </div>
               </div>
+          </div>
+          <div class="action_viewer">
+            <div style="width: 100%;" fxLayoutAlign="end end">
+              <button mat-icon-button>
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button>
+                <mat-icon>content_copy</mat-icon>
+              </button>
+              <button mat-icon-button color="warn" (click)="onDelete(i, item)">
+                <mat-icon>delete</mat-icon>
+              </button>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </div>

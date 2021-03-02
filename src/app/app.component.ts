@@ -110,18 +110,39 @@ export class AppComponent {
     if (this.currentSelectedIndex == null) {
       this.currentSelectedIndex = i;
       this.mainData.data[i].expand = true;
+      this.labelController = this.mainData.data[i].label;
     } else {
       this.currentSelectedIndex = this.currentSelectedIndex;
       this.mainData.data[this.currentSelectedIndex].expand = false;
 
       this.currentSelectedIndex = i;
       this.mainData.data[i].expand = true;
+      this.labelController = this.mainData.data[i].label;
     }
+    // var element = document.getElementById("component_viewer");
+    // document.getElementById('component_viewer').classList.add('mat-elevation-z4');
+    // document.getElementById('component_viewer').style.backgroundColor = '#999';
   }
 
+  labelController = '';
   onDelete(i: number, item: any) {
     console.log(i, item);
     this.mainData.data.splice(i, 1);
+  }
+
+  onChangeSave(i: number, item: any) {
+    console.log(i, item);
+    this.mainData.data[i].label = this.labelController;
+  }
+
+  onMouseHover(i) {
+    console.log('on', i);
+    document.getElementById('action_viewer').style.display = 'block';
+    document.getElementById('component_viewer').style.display = 'none';
+  }
+
+  onMouseHoverLeave(i) {
+    console.log('leave', i);
   }
 
 
