@@ -145,7 +145,7 @@ export class AppComponent {
 
   labelController = '';
   onDelete(i: number, item: any) {
-    console.log(i, item);
+    // console.log(i, item);
     this.mainData.data.splice(i, 1);
     this.currentSelectedIndex = null;
   }
