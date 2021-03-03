@@ -38,9 +38,9 @@
         <div id="preview_container" class="example-list" [style]="mainData.style" cdkDropList #doneList="cdkDropList"
           [cdkDropListData]="mainData.data" [cdkDropListConnectedTo]="[todoList]" (cdkDropListDropped)="drop2($event)">
           <div fxLayout="row" fxLayoutAlign="space-evenly stretch" style="width: 100%;" class="example-box"
-            (click)="onSelected(i, item)" *ngFor="let item of mainData.data; let i = index;" cdkDrag>
+            *ngFor="let item of mainData.data; let i = index; let l = count;" cdkDrag>
             <div class="component_panel" fxLayout="column" style="width: 100%;">
-              <div class="vessel_panel" fxLayout="column" style="width: 100%;">
+              <div (click)="onSelected(i, item)" class="vessel_panel" fxLayout="column" style="width: 100%;">
                 <div>
                   <div style="padding: 5px; padding-left: 20px; padding-right: 20px;">
                     <app-vessel [value]="item"></app-vessel>
@@ -70,11 +70,13 @@
                   <span style="color: white; font-size: 20pt;" class="iconify" data-icon="mdi:cursor-move"
                     data-inline="false"></span>
                 </button>
-                <button matTooltip="Move Up" mat-icon-button (click)="onEdit(i, item)">
-                  <mat-icon style="color: white;">arrow_upward</mat-icon>
+                <button [disabled]="i == 0" matTooltip="Move Up" mat-icon-button (click)="onMoveUp(i, item)">
+                  <mat-icon *ngIf="i > 0" style="color: white;">arrow_upward</mat-icon>
+                  <mat-icon *ngIf="i == 0" style="color: rgb(190, 181, 181);">arrow_upward</mat-icon>
                 </button>
-                <button matTooltip="Move Down" mat-icon-button (click)="onEdit(i, item)">
-                  <mat-icon style="color: white;">arrow_downward</mat-icon>
+                <button [disabled]="i == l-1" matTooltip="Move Up" mat-icon-button (click)="onMoveDown(i, item)">
+                  <mat-icon *ngIf="i < l-1" style="color: white;">arrow_downward</mat-icon>
+                  <mat-icon *ngIf="i == l-1" style="color: rgb(190, 181, 181);">arrow_downward</mat-icon>
                 </button>
                 <button matTooltip="Clone" mat-icon-button (click)="onClone(i, item)">
                   <mat-icon style="color: white;">content_copy</mat-icon>

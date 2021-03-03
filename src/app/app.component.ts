@@ -26,6 +26,11 @@ export class AppComponent {
         'id': 'checkbox',
         'label': 'Checkbox',
         'icon': 'check_box',
+      },
+      {
+        'id': 'dropdown',
+        'label': 'Dropdown',
+        'icon': 'arrow_drop_down_circle',
       }
     ]
   };
@@ -145,7 +150,7 @@ export class AppComponent {
 
   labelController = '';
   onDelete(i: number, item: any) {
-    console.log(i, item);
+    // console.log(i, item);
     this.mainData.data.splice(i, 1);
     this.currentSelectedIndex = null;
   }
@@ -170,9 +175,22 @@ export class AppComponent {
     console.log('leave', i);
   }
 
-  onSave(i) {
+  onSave(i: number, element: any) {
     console.log('on_save', i);
     this.mainData.data[this.currentSelectedIndex] = this.currentSelectedItem;
+  }
+
+  onMoveUp(i: number, element: any): void {
+    let oData = this.mainData.data[i-1];
+    this.mainData.data.splice(i-1, 1, element);
+    this.mainData.data.splice(i, 1, oData);
+  }
+
+  onMoveDown(i: number, element: any): void {
+    console.log(i, element);
+    let oData = this.mainData.data[i+1];
+    this.mainData.data.splice(i+1, 1, element);
+    this.mainData.data.splice(i, 1, oData);
   }
 
 

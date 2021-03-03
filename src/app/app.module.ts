@@ -26,6 +26,9 @@ import { VesselComponent } from './components/vessel/vessel.component';
 import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
+import { SelectComponent } from './components/select/select.component';
+import { DropdownComponent } from './components/dropdown/dropdown.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,9 @@ import { MatTabsModule } from '@angular/material/tabs';
     InputComponent,
     ButtonComponent,
     CheckboxComponent,
-    VesselComponent
+    VesselComponent,
+    SelectComponent,
+    DropdownComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +62,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     FormsModule,
     MatCardModule,
     MatTabsModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
