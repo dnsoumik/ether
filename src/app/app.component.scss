@@ -157,7 +157,7 @@
 }
 
 .id_panel {
-  background-color: rgb(51, 168, 204);
+  background-color: #009688;
   // background-color: white;
   padding: 1px;
   padding-left: 20px;
@@ -166,12 +166,12 @@
 }
 
 .edit_id_panel {
-  background-color: rgb(221, 117, 20);
+  background-color: #039be5;
   padding: 1px;
   padding-left: 20px;
   padding-right: 20px;
   position: absolute;
-  border: 2px solid rgb(221, 117, 20);
+  border: 2px solid #009688;
 }
 
 div.component_panel {
@@ -180,7 +180,7 @@ div.component_panel {
   margin: 5px;
 }
 div.component_panel:hover .vessel_panel {
-  opacity: 0.9;
+  // opacity: 0.9;
   // border: 2px solid rgb(51, 168, 204);
   // border-radius: 5px;
   // box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
@@ -195,8 +195,10 @@ div.component_panel .id_panel {
   display: none;
 }
 div.component_panel .id_panel {
-  top: 0%;
+  top: -20px;
   left: 0%;
+  height: 20px;
+  border-radius: 5px 5px 0px 0px;
 }
 
 .boundary_panel {
@@ -208,7 +210,7 @@ div.component_panel .id_panel {
 }
 
 .action_boundary_panel {
-  border: 2px solid rgb(221, 117, 20);
+  border: 2px solid #009688;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -217,11 +219,12 @@ div.component_panel .id_panel {
 
 div.component_panel:hover .boundary_panel {
   display: block;
-  border: 2px solid rgb(51, 168, 204);
+  border: 2px solid #009688;
 }
 
 .action_panel {
-  background-color: rgb(221, 117, 20);
+  background-color: #009688;
+  border-radius: 6px 6px 0px 0px;
   padding: 2px;
   padding-left: 20px;
   padding-right: 20px;
@@ -229,4 +232,8 @@ div.component_panel:hover .boundary_panel {
   right: -0%;
   top: -44px;
   max-height: 50px;
+}
+
+.mat-icon-button:hover {
+  background-color: rgba(0, 0, 0, 0.336);
 }
