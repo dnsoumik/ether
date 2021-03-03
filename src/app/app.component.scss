@@ -157,7 +157,7 @@
 }
 
 .id_panel {
-  background-color: #009688;
+  background-color: #005cb2;
   // background-color: white;
   padding: 1px;
   padding-left: 20px;
@@ -166,12 +166,17 @@
 }
 
 .edit_id_panel {
-  background-color: #039be5;
+  background-color: #c63f17;
   padding: 1px;
   padding-left: 20px;
   padding-right: 20px;
   position: absolute;
-  border: 2px solid #009688;
+  z-index: 10;
+  top: -24px;
+  left: 0%;
+  height: 20px;
+  border: 2px solid #c63f17;
+  border-radius: 5px 5px 0px 0px;
 }
 
 div.component_panel {
@@ -210,7 +215,7 @@ div.component_panel .id_panel {
 }
 
 .action_boundary_panel {
-  border: 2px solid #009688;
+  border: 2px solid #f4511e;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -219,11 +224,11 @@ div.component_panel .id_panel {
 
 div.component_panel:hover .boundary_panel {
   display: block;
-  border: 2px solid #009688;
+  border: 2px solid #005cb2;
 }
 
 .action_panel {
-  background-color: #009688;
+  background-color: #f4511e;
   border-radius: 6px 6px 0px 0px;
   padding: 2px;
   padding-left: 20px;
@@ -231,9 +236,18 @@ div.component_panel:hover .boundary_panel {
   position: absolute;
   right: -0%;
   top: -44px;
+  z-index: 10;
   max-height: 50px;
 }
 
 .mat-icon-button:hover {
   background-color: rgba(0, 0, 0, 0.336);
+}
+
+::ng-deep .mat-tooltip {
+  color: white;
+  background-color: black;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 9pt;
 }
