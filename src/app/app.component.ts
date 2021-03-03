@@ -69,6 +69,7 @@ export class AppComponent {
     ],
     "style": {
       'width': '100%',
+      'min-height': '600px',
       'padding': '10px',
       'padding-top': '50px',
       'padding-bottom': '50px',
@@ -90,12 +91,12 @@ export class AppComponent {
 
   onMobilePreview() {
     document.getElementById('preview_container').style.width = '400px';
-    document.getElementById('preview_container').style.height = '800px';
+    document.getElementById('preview_container').style.height = '600px';
   }
 
   onDesktopPreview() {
     document.getElementById('preview_container').style.width = '100%';
-    document.getElementById('preview_container').style.height = '100%';
+    document.getElementById('preview_container').style.height = '600px';
   }
 
   drop(event: CdkDragDrop<string[]>) {
