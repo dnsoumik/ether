@@ -16,21 +16,25 @@ export class AppComponent {
         'id': 'input',
         'label': 'Text Field',
         'icon': 'input',
+        "expand": false,
       },
       {
         'id': 'button',
         'label': 'Mat Raised Button',
-        'icon': 'smart_button'
+        'icon': 'smart_button',
+        "expand": false,
       },
       {
         'id': 'checkbox',
         'label': 'Checkbox',
         'icon': 'check_box',
+        "expand": false,
       },
       {
         'id': 'dropdown',
         'label': 'Dropdown',
         'icon': 'arrow_drop_down_circle',
+        "expand": false,
       }
     ]
   };
@@ -110,17 +114,19 @@ export class AppComponent {
         event.currentIndex
       );
     }
-    
+
     if (this.currentSelectedIndex != null) {
-      this.mainData.data[this.currentSelectedIndex].expand = false;  
+      this.mainData.data[this.currentSelectedIndex].expand = false;
     }
 
-    this.currentSelectedIndex = event.currentIndex;
-    this.mainData.data[event.previousIndex].expand = false;
-    this.mainData.data[event.currentIndex].expand = true;
-    this.currentSelectedItem = this.mainData.data[event.currentIndex];
+    setTimeout(() => {
+      this.currentSelectedIndex = event.currentIndex;
+      this.mainData.data[event.previousIndex].expand = false;
+      this.mainData.data[event.currentIndex].expand = true;
+    }, 100);
+    this.currentSelectedItem = JSON.parse(JSON.stringify(this.mainData.data[event.currentIndex]));
   }
-  
+
   currentSelectedIndex: number = null;
   currentSelectedItem: any = {
     'id': '',
@@ -161,8 +167,13 @@ export class AppComponent {
   }
 
   onClone(i: number, item: any) {
-    console.log(i, item);
+    console.log('on_clone', i, item);
+    // item.expand = false;
     this.mainData.data.splice(i, 0, item);
+    setTimeout(() => {
+      this.mainData.data[i].expand = true;
+      this.mainData.data[i + 1].expand = false;
+    }, 50);
   }
 
   onMouseHover(i) {
@@ -181,15 +192,17 @@ export class AppComponent {
   }
 
   onMoveUp(i: number, element: any): void {
-    let oData = this.mainData.data[i-1];
-    this.mainData.data.splice(i-1, 1, element);
+    let oData = this.mainData.data[i - 1];
+    oData.expand = false;
+    this.mainData.data.splice(i - 1, 1, element);
     this.mainData.data.splice(i, 1, oData);
   }
 
   onMoveDown(i: number, element: any): void {
     console.log(i, element);
-    let oData = this.mainData.data[i+1];
-    this.mainData.data.splice(i+1, 1, element);
+    let oData = this.mainData.data[i + 1];
+    oData.expand = false;
+    this.mainData.data.splice(i + 1, 1, element);
     this.mainData.data.splice(i, 1, oData);
   }
 

@@ -62,11 +62,11 @@
               <div class="id_panel">
                 <b style="color: white;">{{item.id}}</b>
               </div>
-              <!-- <div [fxShow]="item.expand" class="edit_id_panel">
+              <div [fxShow]="item.expand" class="edit_id_panel">
                 <b style="color: white;">{{item.id}}</b>
-              </div> -->
+              </div>
               <div class="action_panel" [fxShow]="item.expand">
-                <button matTooltip="Move" mat-icon-button>
+                <button style="cursor: move;" cdkDragHandle matTooltip="Move" mat-icon-button>
                   <span style="color: white; font-size: 20pt;" class="iconify" data-icon="mdi:cursor-move"
                     data-inline="false"></span>
                 </button>
