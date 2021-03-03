@@ -59,12 +59,15 @@ export class AppComponent {
       }
     ],
     "style": {
-      'padding': '10px'
+      'width': '100%',
+      'padding': '10px',
+      'padding-top': '50px',
+      'padding-bottom': '50px',
     }
   };
 
   get mainDataInString() {
-    return JSON.stringify(this.mainData, null, 2);
+    return JSON.stringify(this.mainData, null, 4);
   }
 
   set mainDataInString(v) {
@@ -72,7 +75,7 @@ export class AppComponent {
       this.mainData = JSON.parse(v);
     }
     catch (e) {
-      console.log('error occored while you were typing the JSON');
+      // console.log(e, 'error occored while you were typing the JSON');
     };
   }
 
@@ -90,7 +93,7 @@ export class AppComponent {
     moveItemInArray(this.mainData.data, event.previousIndex, event.currentIndex);
   }
 
-  
+
   drop2(event: any) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
@@ -102,11 +105,26 @@ export class AppComponent {
         event.currentIndex
       );
     }
-  }
+    
+    if (this.currentSelectedIndex != null) {
+      this.mainData.data[this.currentSelectedIndex].expand = false;  
+    }
 
+    this.currentSelectedIndex = event.currentIndex;
+    this.mainData.data[event.previousIndex].expand = false;
+    this.mainData.data[event.currentIndex].expand = true;
+    this.currentSelectedItem = this.mainData.data[event.currentIndex];
+  }
+  
   currentSelectedIndex: number = null;
+  currentSelectedItem: any = {
+    'id': '',
+    'label': '',
+    'icon': '',
+  };
   onSelected(i: number, item: any) {
-    console.log(i, item);
+    console.log('on_selected', i, item);
+    this.currentSelectedItem = item;
     if (this.currentSelectedIndex == null) {
       this.currentSelectedIndex = i;
       this.mainData.data[i].expand = true;
@@ -119,20 +137,27 @@ export class AppComponent {
       this.mainData.data[i].expand = true;
       this.labelController = this.mainData.data[i].label;
     }
-    // var element = document.getElementById("component_viewer");
-    // document.getElementById('component_viewer').classList.add('mat-elevation-z4');
-    // document.getElementById('component_viewer').style.backgroundColor = '#999';
+  }
+
+  onEdit(i: number, item: any): void {
+    console.log(i, item);
   }
 
   labelController = '';
   onDelete(i: number, item: any) {
     console.log(i, item);
     this.mainData.data.splice(i, 1);
+    this.currentSelectedIndex = null;
   }
 
   onChangeSave(i: number, item: any) {
     console.log(i, item);
     this.mainData.data[i].label = this.labelController;
+  }
+
+  onClone(i: number, item: any) {
+    console.log(i, item);
+    this.mainData.data.splice(i, 0, item);
   }
 
   onMouseHover(i) {
@@ -143,6 +168,11 @@ export class AppComponent {
 
   onMouseHoverLeave(i) {
     console.log('leave', i);
+  }
+
+  onSave(i) {
+    console.log('on_save', i);
+    this.mainData.data[this.currentSelectedIndex] = this.currentSelectedItem;
   }
 
 

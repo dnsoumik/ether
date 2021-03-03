@@ -5,8 +5,6 @@
 
 #preview_container {
   border: 1px solid black;
-  width: 100%;
-  // background-color: rgb(243, 236, 236);
 }
 
 .component_viewer:hover {
@@ -24,7 +22,7 @@
 .component_viewer:hover + .action_viewer {
   display: block;
   z-index: 5;
-  position:absolute;
+  position: absolute;
 }
 
 // .component_viewer:hover {
@@ -96,7 +94,6 @@
 //   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 // }
 
-
 // .example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
 //   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 // }
@@ -157,4 +154,79 @@
   border: dotted 3px #999;
   min-height: 80px;
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.id_panel {
+  background-color: rgb(51, 168, 204);
+  // background-color: white;
+  padding: 1px;
+  padding-left: 20px;
+  padding-right: 20px;
+  // border-radius: 5px;
+}
+
+.edit_id_panel {
+  background-color: rgb(221, 117, 20);
+  padding: 1px;
+  padding-left: 20px;
+  padding-right: 20px;
+  position: absolute;
+  border: 2px solid rgb(221, 117, 20);
+}
+
+div.component_panel {
+  position: relative;
+  float: left;
+  margin: 5px;
+}
+div.component_panel:hover .vessel_panel {
+  opacity: 0.9;
+  // border: 2px solid rgb(51, 168, 204);
+  // border-radius: 5px;
+  // box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+  //   0 5px 5px 1px rgba(0, 0, 0, 0.14), 0 3px 5px 2px rgba(0, 0, 0, 0.12);
+}
+div.component_panel:hover .id_panel {
+  transition: 3s;
+  display: inline-block;
+}
+div.component_panel .id_panel {
+  position: absolute;
+  display: none;
+}
+div.component_panel .id_panel {
+  top: 0%;
+  left: 0%;
+}
+
+.boundary_panel {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+}
+
+.action_boundary_panel {
+  border: 2px solid rgb(221, 117, 20);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+}
+
+div.component_panel:hover .boundary_panel {
+  display: block;
+  border: 2px solid rgb(51, 168, 204);
+}
+
+.action_panel {
+  background-color: rgb(221, 117, 20);
+  padding: 2px;
+  padding-left: 20px;
+  padding-right: 20px;
+  position: absolute;
+  right: -0%;
+  top: -44px;
+  max-height: 50px;
 }

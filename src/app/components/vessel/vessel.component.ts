@@ -13,7 +13,6 @@ export class VesselComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.value);
   }
 
 }
