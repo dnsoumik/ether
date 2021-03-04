@@ -3,6 +3,15 @@
   margin-bottom: 10px;
 }
 
+.basic_drag:hover {
+  background-color: #0077c2;
+  .mat-icon {
+    color: white;
+  }
+  color: white;
+  cursor: pointer;
+}
+
 #preview_container {
   border: 1px solid black;
 }
