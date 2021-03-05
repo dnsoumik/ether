@@ -42,7 +42,7 @@
             <div class="component_panel" fxLayout="column" style="width: 100%;">
               <div (click)="onSelected(i, item)" class="vessel_panel" fxLayout="column" style="width: 100%;">
                 <div>
-                  <div style="padding: 5px; padding-left: 20px; padding-right: 20px;">
+                  <div>
                     <app-vessel [value]="item"></app-vessel>
                   </div>
                 </div>
@@ -118,6 +118,18 @@
                     <mat-label>Label</mat-label>
                     <input matInput [(ngModel)]="currentSelectedItem.label">
                   </mat-form-field>
+                  <div *ngIf="currentSelectedItem.childs.length">
+                    <div style="margin-top: 30px; font-size: 14pt;">
+                      <u>Children</u>
+                    </div>
+                    <div *ngIf="currentSelectedItem.id == 'dropdown'">
+                      <mat-form-field *ngFor="let elem of currentSelectedItem.childs"
+                        style="width: 100%; margin-top: 20px;" appearance="outline">
+                        <mat-label>Label</mat-label>
+                        <input matInput [(ngModel)]="elem.text">
+                      </mat-form-field>
+                    </div>
+                  </div>
                 </div>
                 <div style="width: 100%; margin-top: 20px;" fxLayoutGap="10px" fxLayoutAlign="center center">
                   <button style="border-radius: 10px;" matTooltip="Save" mat-raised-button color="primary"
@@ -148,31 +160,44 @@
     </div>
   </div>
 
-  <div fxLayout="row" style="padding: 20px;">
-    <div fxFlex="50" style="height: auto; min-height: 700px; padding: 20px;">
-      <b style="font-size: 16pt;">Meta Data [ JSON ]</b>
+  <div class="json_viewer" fxLayout="row">
+    <div fxFlex="50" style="padding: 20px;">
+      <b style="font-size: 16pt;">Meta Data Editor [ JSON ]</b>
       <div style="height: 20px;"></div>
-      <ace-editor [(text)]="mainDataInString" mode="json" style="height: auto; min-height: 600px;"></ace-editor>
+      <ace-editor [(text)]="mainDataInString" [theme]="'eclipse'" mode="json" style="height:100%; font-size: 1rem;">
+      </ace-editor>
     </div>
-    <div fxFlex="50" style="height: auto; min-height: 700px; padding: 20px;">
+    <div fxFlex="50" style="padding: 20px;">
       <b style="font-size: 16pt;">Meta Data Viewer [ JSON ]</b>
       <div style="height: 20px;"></div>
-      <ngx-json-viewer [json]="mainData" style="height: auto; min-height: 600px;"></ngx-json-viewer>
+      <ngx-json-viewer [json]="mainData" style="height: 100%; overflow: auto;"></ngx-json-viewer>
     </div>
   </div>
 
-  <div>
-    <div class="template_title" >
+  <div class="template_main" fxLayout="column" fxLayoutAlign="center stretch">
+    <div class="template_title">
       Form Viewer
     </div>
-    <div class="template_viewer">
-      <div fxLayout="row" fxLayoutAlign="space-evenly stretch" style="width: 100%;"
-        *ngFor="let item of mainData.data; let i = index; let l = count;" cdkDrag>
-        <div fxLayout="column" style="width: 100%;">
-          <div class="vessel_panel" fxLayout="column" style="width: 100%;">
-            <div>
-              <div style="padding: 5px; padding-left: 20px; padding-right: 20px;">
-                <app-vessel [value]="item"></app-vessel>
+    <div style="text-align: center; margin-bottom: 30px;">
+      <div>
+        <button mat-icon-button matTooltip="Mobile view" (click)="onMobilePreview()">
+          <mat-icon>phone_iphone</mat-icon>
+        </button>
+        <button mat-icon-button matTooltip="Desktop view" (click)="onDesktopPreview()">
+          <mat-icon>computer</mat-icon>
+        </button>
+      </div>
+    </div>
+    <div fxLayoutAlign="center center">
+      <div id="template_viewer" class="template_viewer" [style]="mainData.style">
+        <div fxLayout="row" fxLayoutAlign="space-evenly stretch"
+          *ngFor="let item of mainData.data; let i = index; let l = count;" cdkDrag>
+          <div fxLayout="column" style="width: 100%;">
+            <div class="vessel_panel" fxLayout="column" style="width: 100%;">
+              <div>
+                <div style="padding: 5px;">
+                  <app-vessel [value]="item"></app-vessel>
+                </div>
               </div>
             </div>
           </div>

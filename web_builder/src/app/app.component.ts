@@ -18,21 +18,24 @@ export class AppComponent {
         'label': 'Text Field',
         'icon': 'input',
         "eSelect": false,
-        'eId': Compute.getUniqueId()
+        'eId': Compute.getUniqueId(),
+        childs: [],
       },
       {
         'id': 'button',
         'label': 'Mat Raised Button',
         'icon': 'smart_button',
         "eSelect": false,
-        'eId': Compute.getUniqueId()
+        'eId': Compute.getUniqueId(),
+        childs: [],
       },
       {
         'id': 'checkbox',
         'label': 'Checkbox',
         'icon': 'check_box',
         "eSelect": false,
-        'eId': Compute.getUniqueId()
+        'eId': Compute.getUniqueId(),
+        childs: [],
       },
       {
         'id': 'dropdown',
@@ -40,7 +43,7 @@ export class AppComponent {
         'icon': 'arrow_drop_down_circle',
         "eSelect": false,
         'eId': Compute.getUniqueId(),
-        options: [
+        childs: [
           {
             text: 'Value 1',
             valueType: 'string',
@@ -68,30 +71,35 @@ export class AppComponent {
         "label": "First name",
         "eSelect": false,
         'eId': Compute.getUniqueId(),
+        childs: [],
       },
       {
         "id": "input",
         "label": "Last name",
         "eSelect": false,
         'eId': Compute.getUniqueId(),
+        childs: [],
       },
       {
         "id": "input",
         "eSelect": false,
         "label": "Phone number",
         'eId': Compute.getUniqueId(),
+        childs: [],
       },
       {
         "id": "input",
         "eSelect": false,
         "label": "Email (optional)",
         'eId': Compute.getUniqueId(),
+        childs: [],
       },
       {
         "id": "button",
         "eSelect": false,
         "label": "Submit",
         'eId': Compute.getUniqueId(),
+        childs: [],
       }
     ],
     "style": {
@@ -119,11 +127,15 @@ export class AppComponent {
   onMobilePreview() {
     document.getElementById('preview_container').style.width = '400px';
     document.getElementById('preview_container').style.height = '600px';
+    document.getElementById('template_viewer').style.width = '400px';
+    document.getElementById('template_viewer').style.height = '600px';
   }
 
   onDesktopPreview() {
     document.getElementById('preview_container').style.width = '100%';
     document.getElementById('preview_container').style.height = '600px';
+    document.getElementById('template_viewer').style.width = '100%';
+    document.getElementById('template_viewer').style.height = '600px';
   }
 
   drop(event: CdkDragDrop<string[]>) {
