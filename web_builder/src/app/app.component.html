@@ -1,7 +1,7 @@
 <div fxLayout="column">
   <div fxLayoutAlign="center center">
     <mat-toolbar color="primary" fxLayoutAlign="center center">
-      <span>UI Builder v1.0.0</span>
+      <span>UI Builder v{{environment.version}}</span>
     </mat-toolbar>
   </div>
   <div>
@@ -26,7 +26,10 @@
     <div fxFlex="65" fxLayout="column" fxLayoutAlign="start stretch">
       <div fxLayout="column" fxLayoutAlign="center center">
         <div style="text-align: center;">
-          <div>
+          <div fxLayout="row">
+            <div style="padding: 10px; margin-right: 10px; font-size: 12pt;">
+              Element Builder
+            </div>
             <button mat-icon-button matTooltip="Mobile view" (click)="onMobilePreview()">
               <mat-icon>phone_iphone</mat-icon>
             </button>
@@ -176,7 +179,7 @@
 
   <div class="template_main" fxLayout="column" fxLayoutAlign="center stretch">
     <div class="template_title">
-      Form Viewer
+      Rendered View
     </div>
     <div style="text-align: center; margin-bottom: 30px;">
       <div>
