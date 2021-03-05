@@ -1,3 +1,10 @@
 # Project Eather | No code Project Builder
 
 It's still in alpha stage scope of this project is to create another project with no coding experiance
+
+# Mile stones
+1. Validation
+2. Multi page.
+3. Page Route.
+4. API integration.
+5. Web server integration.
