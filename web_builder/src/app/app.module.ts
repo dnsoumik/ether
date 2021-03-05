@@ -29,6 +29,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { SelectComponent } from './components/select/select.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { MatSelectModule } from '@angular/material/select';
+import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
 
 @NgModule({
   declarations: [
@@ -63,8 +64,15 @@ import { MatSelectModule } from '@angular/material/select';
     MatCardModule,
     MatTabsModule,
     MatSelectModule,
+    SnotifyModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'SnotifyToastConfig',
+      useValue: ToastDefaults,
+    },
+    SnotifyService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
