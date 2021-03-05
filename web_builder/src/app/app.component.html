@@ -42,7 +42,7 @@
             <div class="component_panel" fxLayout="column" style="width: 100%;">
               <div (click)="onSelected(i, item)" class="vessel_panel" fxLayout="column" style="width: 100%;">
                 <div>
-                  <div style="padding: 5px; padding-left: 20px; padding-right: 20px;">
+                  <div>
                     <app-vessel [value]="item"></app-vessel>
                   </div>
                 </div>
@@ -55,17 +55,17 @@
                 </div>
                 <div class="boundary_panel">
                 </div>
-                <div [fxShow]="item.expand" class="action_boundary_panel"
+                <div [fxShow]="item.eSelect" class="action_boundary_panel"
                   style="width: 100%; height: 100%; position: absolute; z-index: 2;">
                 </div>
               </div>
               <div class="id_panel">
                 <b style="color: white;">{{item.id}}</b>
               </div>
-              <div [fxShow]="item.expand" class="edit_id_panel">
+              <div [fxShow]="item.eSelect" class="edit_id_panel">
                 <b style="color: white;">{{item.id}}</b>
               </div>
-              <div class="action_panel" [fxShow]="item.expand">
+              <div class="action_panel" [fxShow]="item.eSelect">
                 <button style="cursor: move;" cdkDragHandle matTooltip="Move" mat-icon-button>
                   <span style="color: white; font-size: 20pt;" class="iconify" data-icon="mdi:cursor-move"
                     data-inline="false"></span>
@@ -83,6 +83,9 @@
                 </button>
                 <button matTooltip="Delete" mat-icon-button (click)="onDelete(i, item)">
                   <mat-icon style="color: white;">delete</mat-icon>
+                </button>
+                <button matTooltip="Close" mat-icon-button (click)="onClear(i)">
+                  <mat-icon style="color: white;">clear</mat-icon>
                 </button>
               </div>
             </div>
@@ -115,13 +118,27 @@
                     <mat-label>Label</mat-label>
                     <input matInput [(ngModel)]="currentSelectedItem.label">
                   </mat-form-field>
+                  <div *ngIf="currentSelectedItem.childs.length">
+                    <div style="margin-top: 30px; font-size: 14pt;">
+                      <u>Children</u>
+                    </div>
+                    <div *ngIf="currentSelectedItem.id == 'dropdown'">
+                      <mat-form-field *ngFor="let elem of currentSelectedItem.childs"
+                        style="width: 100%; margin-top: 20px;" appearance="outline">
+                        <mat-label>Label</mat-label>
+                        <input matInput [(ngModel)]="elem.text">
+                      </mat-form-field>
+                    </div>
+                  </div>
                 </div>
                 <div style="width: 100%; margin-top: 20px;" fxLayoutGap="10px" fxLayoutAlign="center center">
-                  <button style="border-radius: 10px;" matTooltip="Save" mat-raised-button color="primary" (click)="onSave(i)">
+                  <button style="border-radius: 10px;" matTooltip="Save" mat-raised-button color="primary"
+                    (click)="onSave(i)">
                     Save
                     <mat-icon style="color: white;">check</mat-icon>
                   </button>
-                  <button style="border-radius: 10px;" matTooltip="Discard" mat-raised-button color="warn" (click)="onDiscard(i, item)">
+                  <button style="border-radius: 10px;" matTooltip="Discard" mat-raised-button color="warn"
+                    (click)="onDiscard(i, item)">
                     Discard
                     <mat-icon style="color: white;">clear</mat-icon>
                   </button>
@@ -140,12 +157,54 @@
 
         </mat-tab-group>
       </div>
-      <div style="height: auto; min-height: 700px;">
-        <b style="font-size: 16pt;">Meta Data [ JSON ]</b>
-        <div style="height: 20px;"></div>
-        <ace-editor [(text)]="mainDataInString" mode="json" style="height: auto; min-height: 600px;"></ace-editor>
-      </div>
-      <!-- <ngx-json-viewer [json]="mainData"></ngx-json-viewer> -->
     </div>
   </div>
+
+  <div class="json_viewer" fxLayout="row">
+    <div fxFlex="50" style="padding: 20px;">
+      <b style="font-size: 16pt;">Meta Data Editor [ JSON ]</b>
+      <div style="height: 20px;"></div>
+      <ace-editor [(text)]="mainDataInString" [theme]="'eclipse'" mode="json" style="height:100%; font-size: 1rem;">
+      </ace-editor>
+    </div>
+    <div fxFlex="50" style="padding: 20px;">
+      <b style="font-size: 16pt;">Meta Data Viewer [ JSON ]</b>
+      <div style="height: 20px;"></div>
+      <ngx-json-viewer [json]="mainData" style="height: 100%; overflow: auto;"></ngx-json-viewer>
+    </div>
+  </div>
+
+  <div class="template_main" fxLayout="column" fxLayoutAlign="center stretch">
+    <div class="template_title">
+      Form Viewer
+    </div>
+    <div style="text-align: center; margin-bottom: 30px;">
+      <div>
+        <button mat-icon-button matTooltip="Mobile view" (click)="onMobilePreview()">
+          <mat-icon>phone_iphone</mat-icon>
+        </button>
+        <button mat-icon-button matTooltip="Desktop view" (click)="onDesktopPreview()">
+          <mat-icon>computer</mat-icon>
+        </button>
+      </div>
+    </div>
+    <div fxLayoutAlign="center center">
+      <div id="template_viewer" class="template_viewer" [style]="mainData.style">
+        <div fxLayout="row" fxLayoutAlign="space-evenly stretch"
+          *ngFor="let item of mainData.data; let i = index; let l = count;" cdkDrag>
+          <div fxLayout="column" style="width: 100%;">
+            <div class="vessel_panel" fxLayout="column" style="width: 100%;">
+              <div>
+                <div style="padding: 5px;">
+                  <app-vessel [value]="item"></app-vessel>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
 </div>

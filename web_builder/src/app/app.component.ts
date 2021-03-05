@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, copyArrayItem } from '@angular/cdk/drag-drop';
+import { Compute } from './compute/compute';
 
 @Component({
   selector: 'app-root',
@@ -16,25 +17,49 @@ export class AppComponent {
         'id': 'input',
         'label': 'Text Field',
         'icon': 'input',
-        "expand": false,
+        "eSelect": false,
+        'eId': Compute.getUniqueId(),
+        childs: [],
       },
       {
         'id': 'button',
         'label': 'Mat Raised Button',
         'icon': 'smart_button',
-        "expand": false,
+        "eSelect": false,
+        'eId': Compute.getUniqueId(),
+        childs: [],
       },
       {
         'id': 'checkbox',
         'label': 'Checkbox',
         'icon': 'check_box',
-        "expand": false,
+        "eSelect": false,
+        'eId': Compute.getUniqueId(),
+        childs: [],
       },
       {
         'id': 'dropdown',
         'label': 'Dropdown',
         'icon': 'arrow_drop_down_circle',
-        "expand": false,
+        "eSelect": false,
+        'eId': Compute.getUniqueId(),
+        childs: [
+          {
+            text: 'Value 1',
+            valueType: 'string',
+            value: 'value1'
+          },
+          {
+            text: 'Value 2',
+            valueType: 'string',
+            value: 'value2'
+          },
+          {
+            text: 'Value 3',
+            valueType: 'string',
+            value: 'value3'
+          }
+        ]
       }
     ]
   };
@@ -44,27 +69,37 @@ export class AppComponent {
       {
         "id": "input",
         "label": "First name",
-        "expand": false,
+        "eSelect": false,
+        'eId': Compute.getUniqueId(),
+        childs: [],
       },
       {
         "id": "input",
         "label": "Last name",
-        "expand": false,
+        "eSelect": false,
+        'eId': Compute.getUniqueId(),
+        childs: [],
       },
       {
         "id": "input",
-        "expand": false,
-        "label": "Phone number"
+        "eSelect": false,
+        "label": "Phone number",
+        'eId': Compute.getUniqueId(),
+        childs: [],
       },
       {
         "id": "input",
-        "expand": false,
-        "label": "Email (optional)"
+        "eSelect": false,
+        "label": "Email (optional)",
+        'eId': Compute.getUniqueId(),
+        childs: [],
       },
       {
         "id": "button",
-        "expand": false,
-        "label": "Submit"
+        "eSelect": false,
+        "label": "Submit",
+        'eId': Compute.getUniqueId(),
+        childs: [],
       }
     ],
     "style": {
@@ -92,11 +127,15 @@ export class AppComponent {
   onMobilePreview() {
     document.getElementById('preview_container').style.width = '400px';
     document.getElementById('preview_container').style.height = '600px';
+    document.getElementById('template_viewer').style.width = '400px';
+    document.getElementById('template_viewer').style.height = '600px';
   }
 
   onDesktopPreview() {
     document.getElementById('preview_container').style.width = '100%';
     document.getElementById('preview_container').style.height = '600px';
+    document.getElementById('template_viewer').style.width = '100%';
+    document.getElementById('template_viewer').style.height = '600px';
   }
 
   drop(event: CdkDragDrop<string[]>) {
@@ -107,6 +146,11 @@ export class AppComponent {
   drop2(event: any) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+      setTimeout(() => {
+        this.currentSelectedIndex = event.currentIndex;
+        this.mainData.data[event.currentIndex].eSelect = true;
+        this.currentSelectedItem = JSON.parse(JSON.stringify(this.mainData.data[event.currentIndex]));
+      }, 200);
     } else {
       copyArrayItem(
         event.previousContainer.data,
@@ -114,18 +158,8 @@ export class AppComponent {
         event.previousIndex,
         event.currentIndex
       );
+      this.mainData.data[event.currentIndex].eId = Compute.getUniqueId();
     }
-
-    if (this.currentSelectedIndex != null) {
-      this.mainData.data[this.currentSelectedIndex].expand = false;
-    }
-
-    setTimeout(() => {
-      this.currentSelectedIndex = event.currentIndex;
-      this.mainData.data[event.previousIndex].expand = false;
-      this.mainData.data[event.currentIndex].expand = true;
-    }, 100);
-    this.currentSelectedItem = JSON.parse(JSON.stringify(this.mainData.data[event.currentIndex]));
   }
 
   currentSelectedIndex: number = null;
@@ -133,22 +167,32 @@ export class AppComponent {
     'id': '',
     'label': '',
     'icon': '',
+    'eId': '',
   };
-  onSelected(i: number, item: any) {
-    console.log('on_selected', i, item);
-    this.currentSelectedItem = item;
-    if (this.currentSelectedIndex == null) {
-      this.currentSelectedIndex = i;
-      this.mainData.data[i].expand = true;
-      this.labelController = this.mainData.data[i].label;
-    } else {
-      this.currentSelectedIndex = this.currentSelectedIndex;
-      this.mainData.data[this.currentSelectedIndex].expand = false;
-
-      this.currentSelectedIndex = i;
-      this.mainData.data[i].expand = true;
-      this.labelController = this.mainData.data[i].label;
+  selectedElementDefault = {
+    'id': '',
+    'label': '',
+    'icon': '',
+    'eId': '',
+  };
+  onSelected(j: number, item: any) {
+    console.log('on_selected', j, item);
+    if (this.currentSelectedIndex != null) {
+      console.log('id_matched_idx', item.eId);
+      console.log('id_matched_2', this.currentSelectedItem.eId);
+      for (let i = 0; i < this.mainData.data.length; i++) {
+        let idx = this.mainData.data[i];
+        if (idx.eSelect) {
+          this.mainData.data[i].eSelect = false;
+          break;
+        }
+      }
     }
+    setTimeout(() => {
+      this.currentSelectedIndex = j;
+      this.mainData.data[j].eSelect = true;
+      this.currentSelectedItem = item;
+    }, 100);
   }
 
   onEdit(i: number, item: any): void {
@@ -169,11 +213,12 @@ export class AppComponent {
 
   onClone(i: number, item: any) {
     console.log('on_clone', i, item);
-    // item.expand = false;
+    // item.eSelect = false;
     this.mainData.data.splice(i, 0, item);
+    this.mainData.data[i + 1].eSelect = false;    
     setTimeout(() => {
-      this.mainData.data[i].expand = true;
-      this.mainData.data[i + 1].expand = false;
+      this.mainData.data[i].eSelect = true;
+      this.mainData.data[i + 1].eId = Compute.getUniqueId();
     }, 50);
   }
 
@@ -187,14 +232,20 @@ export class AppComponent {
     console.log('leave', i);
   }
 
-  onSave(i: number, element: any) {
-    console.log('on_save', i);
-    this.mainData.data[this.currentSelectedIndex] = this.currentSelectedItem;
+  onSave(n: number, element: any) {
+    console.log('on_save', n);
+    for (let i = 0; i < this.mainData.data.length; i++) {
+      let idx = this.mainData.data[i];
+      if (idx.eId == this.currentSelectedItem.eId) {
+        this.mainData.data[i] = this.currentSelectedItem;
+        break;
+      }
+    }
   }
 
   onMoveUp(i: number, element: any): void {
     let oData = this.mainData.data[i - 1];
-    oData.expand = false;
+    oData.eSelect = false;
     this.mainData.data.splice(i - 1, 1, element);
     this.mainData.data.splice(i, 1, oData);
   }
@@ -202,9 +253,15 @@ export class AppComponent {
   onMoveDown(i: number, element: any): void {
     console.log(i, element);
     let oData = this.mainData.data[i + 1];
-    oData.expand = false;
+    oData.eSelect = false;
     this.mainData.data.splice(i + 1, 1, element);
     this.mainData.data.splice(i, 1, oData);
+  }
+
+  onClear(i: number) {
+    this.currentSelectedIndex = null;
+    this.currentSelectedItem = this.selectedElementDefault;
+    this.mainData.data[i].eSelect = false;
   }
 
 

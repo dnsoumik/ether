@@ -3,7 +3,7 @@ export const ComponentList: Component[] = [
     {
         id: "input",
         label: "Input",
-        expand: false,
+        eSelect: false,
         icon: {
             type: 'mat',
             data: 'edit'
@@ -12,7 +12,7 @@ export const ComponentList: Component[] = [
     {
         id: "button",
         label: "Input",
-        expand: false,
+        eSelect: false,
         icon: {
             type: 'mat',
             data: 'edit'
@@ -24,6 +24,6 @@ export const ComponentList: Component[] = [
 export interface Component {
     id: String,
     label: String,
-    expand: boolean,
+    eSelect: boolean,
     icon: Object,
 }
