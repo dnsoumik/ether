@@ -39,7 +39,24 @@ export class AppComponent {
         'label': 'Dropdown',
         'icon': 'arrow_drop_down_circle',
         "eSelect": false,
-        'eId': Compute.getUniqueId()
+        'eId': Compute.getUniqueId(),
+        options: [
+          {
+            text: 'Value 1',
+            valueType: 'string',
+            value: 'value1'
+          },
+          {
+            text: 'Value 2',
+            valueType: 'string',
+            value: 'value2'
+          },
+          {
+            text: 'Value 3',
+            valueType: 'string',
+            value: 'value3'
+          }
+        ]
       }
     ]
   };

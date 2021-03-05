@@ -120,11 +120,13 @@
                   </mat-form-field>
                 </div>
                 <div style="width: 100%; margin-top: 20px;" fxLayoutGap="10px" fxLayoutAlign="center center">
-                  <button style="border-radius: 10px;" matTooltip="Save" mat-raised-button color="primary" (click)="onSave(i)">
+                  <button style="border-radius: 10px;" matTooltip="Save" mat-raised-button color="primary"
+                    (click)="onSave(i)">
                     Save
                     <mat-icon style="color: white;">check</mat-icon>
                   </button>
-                  <button style="border-radius: 10px;" matTooltip="Discard" mat-raised-button color="warn" (click)="onDiscard(i, item)">
+                  <button style="border-radius: 10px;" matTooltip="Discard" mat-raised-button color="warn"
+                    (click)="onDiscard(i, item)">
                     Discard
                     <mat-icon style="color: white;">clear</mat-icon>
                   </button>
@@ -143,12 +145,41 @@
 
         </mat-tab-group>
       </div>
-      <div style="height: auto; min-height: 700px;">
-        <b style="font-size: 16pt;">Meta Data [ JSON ]</b>
-        <div style="height: 20px;"></div>
-        <ace-editor [(text)]="mainDataInString" mode="json" style="height: auto; min-height: 600px;"></ace-editor>
-      </div>
-      <!-- <ngx-json-viewer [json]="mainData"></ngx-json-viewer> -->
     </div>
   </div>
+
+  <div fxLayout="row" style="padding: 20px;">
+    <div fxFlex="50" style="height: auto; min-height: 700px; padding: 20px;">
+      <b style="font-size: 16pt;">Meta Data [ JSON ]</b>
+      <div style="height: 20px;"></div>
+      <ace-editor [(text)]="mainDataInString" mode="json" style="height: auto; min-height: 600px;"></ace-editor>
+    </div>
+    <div fxFlex="50" style="height: auto; min-height: 700px; padding: 20px;">
+      <b style="font-size: 16pt;">Meta Data Viewer [ JSON ]</b>
+      <div style="height: 20px;"></div>
+      <ngx-json-viewer [json]="mainData" style="height: auto; min-height: 600px;"></ngx-json-viewer>
+    </div>
+  </div>
+
+  <div>
+    <div class="template_title" >
+      Form Viewer
+    </div>
+    <div class="template_viewer">
+      <div fxLayout="row" fxLayoutAlign="space-evenly stretch" style="width: 100%;"
+        *ngFor="let item of mainData.data; let i = index; let l = count;" cdkDrag>
+        <div fxLayout="column" style="width: 100%;">
+          <div class="vessel_panel" fxLayout="column" style="width: 100%;">
+            <div>
+              <div style="padding: 5px; padding-left: 20px; padding-right: 20px;">
+                <app-vessel [value]="item"></app-vessel>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
 </div>

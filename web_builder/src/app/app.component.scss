@@ -34,6 +34,24 @@
   position: absolute;
 }
 
+.template_viewer {
+  border: 1px solid black;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 80px;
+}
+
+.template_title {
+  background-color: #bbdaee;
+  padding: 10px;
+  font-size: 16pt;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  // width: 100%;
+  text-align: center;
+}
+
 // .component_viewer:hover {
 //   // background-color: #999;
 // }
@@ -193,13 +211,13 @@ div.component_panel {
   float: left;
   margin: 5px;
 }
-div.component_panel:hover .vessel_panel {
-  // opacity: 0.9;
-  // border: 2px solid rgb(51, 168, 204);
-  // border-radius: 5px;
-  // box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
-  //   0 5px 5px 1px rgba(0, 0, 0, 0.14), 0 3px 5px 2px rgba(0, 0, 0, 0.12);
-}
+// div.component_panel:hover .vessel_panel {
+//   // opacity: 0.9;
+//   // border: 2px solid rgb(51, 168, 204);
+//   // border-radius: 5px;
+//   // box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+//   //   0 5px 5px 1px rgba(0, 0, 0, 0.14), 0 3px 5px 2px rgba(0, 0, 0, 0.12);
+// }
 div.component_panel:hover .id_panel {
   transition: 3s;
   display: inline-block;
