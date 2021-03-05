@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, copyArrayItem } from '@angular/cdk/drag-drop';
 import { Compute } from './compute/compute';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,7 @@ import { Compute } from './compute/compute';
 export class AppComponent {
 
   title = 'demo';
+  environment = environment;
 
   componentList = {
     'basic': [
