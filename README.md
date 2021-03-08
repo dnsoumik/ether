@@ -9,7 +9,7 @@ It's still in alpha stage scope of this project is to create another project wit
 4. API integration.
 5. Web server integration.
 
-#Supported platforms.
+# Supported platforms.
 1.Android.
 2. IOS.
 3. Web.
