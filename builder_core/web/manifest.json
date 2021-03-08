@@ -1,11 +1,11 @@
 {
-    "name": "flutter_builder",
-    "short_name": "flutter_builder",
+    "name": "ether",
+    "short_name": "ether",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "Ether Flutter Project builder",
+    "description": "A new Flutter application.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

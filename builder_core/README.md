@@ -1,6 +1,6 @@
-# flutter_builder
+# ether
 
-Ether Flutter Project builder
+A new Flutter application.
 
 ## Getting Started
 
