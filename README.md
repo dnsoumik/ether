@@ -11,6 +11,6 @@ It's still in alpha stage scope of this project is to create another project wit
 
 # Supported platforms.
 1.Android.
-2. IOS.
-3. Web.
-4. Linux.
+2.IOS.
+3.Web.
+4.Linux.
