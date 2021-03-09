@@ -121,6 +121,24 @@ class _MyHomePageState extends State<MyHomePage> {
                               ),
                             ),
                           ),
+                          HoverCrossFadeWidget(
+                            duration: Duration(milliseconds: 200),
+                            firstChild: ListTile(
+                              title: Text('Dropdown'),
+                              leading: Icon(
+                                Icons.arrow_drop_down_circle_outlined,
+                              ),
+                            ),
+                            secondChild: Container(
+                              color: Colors.grey[300],
+                              child: ListTile(
+                                title: Text('Dropdown'),
+                                leading: Icon(
+                                  Icons.arrow_drop_down_circle_outlined,
+                                ),
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),
