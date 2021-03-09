@@ -139,6 +139,24 @@ class _MyHomePageState extends State<MyHomePage> {
                               ),
                             ),
                           ),
+                          HoverCrossFadeWidget(
+                            duration: Duration(milliseconds: 200),
+                            firstChild: ListTile(
+                              title: Text('Radio Button'),
+                              leading: Icon(
+                                Icons.radio_button_checked,
+                              ),
+                            ),
+                            secondChild: Container(
+                              color: Colors.grey[300],
+                              child: ListTile(
+                                title: Text('Radio Button'),
+                                leading: Icon(
+                                  Icons.radio_button_checked,
+                                ),
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),
