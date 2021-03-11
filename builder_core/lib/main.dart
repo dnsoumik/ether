@@ -1,192 +1,112 @@
-import 'package:flutter/cupertino.dart';
+/// Flutter code sample for Draggable
+
+// The following example has a [Draggable] widget along with a [DragTarget]
+// in a row demonstrating an incremented `acceptedData` integer value when
+// you drag the element to the target.
+
 import 'package:flutter/material.dart';
-import 'package:hovering/hovering.dart';
 
-void main() {
-  runApp(MyApp());
-}
+import 'drag_handle_example.dart';
 
+void main() => runApp(MyApp());
+
+/// This is the main application widget.
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+  static const String _title = 'Flutter Code Sample';
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+      title: _title,
+      home: Scaffold(
+        appBar: AppBar(title: const Text(_title)),
+        body: DragHandleExample(),
       ),
-      home: MyHomePage(title: 'Ether v1.0.0'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String? title;
+/// This is the stateful widget that the main application instantiates.
+class MyStatefulWidget extends StatefulWidget {
+  MyStatefulWidget({Key key}) : super(key: key);
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
+/// This is the private State class that goes with MyStatefulWidget.
+class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  int acceptedData = 0;
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title!),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              height: 600,
-              // padding: EdgeInsets.all(10),
-              child: Row(
-                children: [
-                  Flexible(
-                    flex: 1,
-                    child: Container(
-                      // color: Colors.green,
-                      child: Column(
-                        children: [
-                          HoverCrossFadeWidget(
-                            duration: Duration(milliseconds: 200),
-                            firstChild: ListTile(
-                              title: Text('Input field'),
-                              leading: Icon(
-                                Icons.input,
-                              ),
-                            ),
-                            secondChild: Container(
-                              color: Colors.grey[300],
-                              child: ListTile(
-                                title: Text('Input field'),
-                                leading: Icon(
-                                  Icons.input,
-                                ),
-                              ),
-                            ),
-                          ),
-                          HoverCrossFadeWidget(
-                            duration: Duration(milliseconds: 200),
-                            firstChild: ListTile(
-                              title: Text('Text'),
-                              leading: Icon(
-                                Icons.text_fields,
-                              ),
-                            ),
-                            secondChild: Container(
-                              color: Colors.grey[300],
-                              child: ListTile(
-                                title: Text('Text'),
-                                leading: Icon(
-                                  Icons.text_fields,
-                                ),
-                              ),
-                            ),
-                          ),
-                          HoverCrossFadeWidget(
-                            duration: Duration(milliseconds: 200),
-                            firstChild: ListTile(
-                              title: Text('Button'),
-                              leading: Icon(
-                                Icons.smart_button,
-                              ),
-                            ),
-                            secondChild: Container(
-                              color: Colors.grey[300],
-                              child: ListTile(
-                                title: Text('Button'),
-                                leading: Icon(
-                                  Icons.smart_button,
-                                ),
-                              ),
-                            ),
-                          ),
-                          HoverCrossFadeWidget(
-                            duration: Duration(milliseconds: 200),
-                            firstChild: ListTile(
-                              title: Text('Dropdown'),
-                              leading: Icon(
-                                Icons.arrow_drop_down_circle_outlined,
-                              ),
-                            ),
-                            secondChild: Container(
-                              color: Colors.grey[300],
-                              child: ListTile(
-                                title: Text('Dropdown'),
-                                leading: Icon(
-                                  Icons.arrow_drop_down_circle_outlined,
-                                ),
-                              ),
-                            ),
-                          ),
-                          HoverCrossFadeWidget(
-                            duration: Duration(milliseconds: 200),
-                            firstChild: ListTile(
-                              title: Text('Radio Button'),
-                              leading: Icon(
-                                Icons.radio_button_checked,
-                              ),
-                            ),
-                            secondChild: Container(
-                              color: Colors.grey[300],
-                              child: ListTile(
-                                title: Text('Radio Button'),
-                                leading: Icon(
-                                  Icons.radio_button_checked,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Flexible(
-                    flex: 4,
-                    child: Container(
-                      color: Colors.blue,
-                    ),
-                  ),
-                  Flexible(
-                    flex: 1,
-                    child: Container(
-                      color: Colors.red,
-                    ),
-                  ),
-                ],
+    return Row(
+      // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Flexible(
+          flex: 1,
+          child: Container(
+            color: Colors.blue,
+            width: MediaQuery.of(context).size.width,
+            child: Draggable<int>(
+              // Data is the value this Draggable stores.
+              data: 10,
+              child: Container(
+                height: 100.0,
+                color: Colors.lightGreenAccent,
+                child: Center(
+                  child: Text("Draggable"),
+                ),
+              ),
+              feedback: Container(
+                color: Colors.deepOrange,
+                height: 100,
+                width: 100,
+                child: Icon(Icons.directions_run),
+              ),
+              childWhenDragging: Container(
+                height: 100.0,
+                width: 100.0,
+                color: Colors.pinkAccent,
+                child: Center(
+                  child: Text("Child When Dragging"),
+                ),
               ),
             ),
-            Container(
-              height: 200,
-            )
-          ],
+          ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
+        Flexible(
+          flex: 4,
+          child: Container(
+            color: Colors.red,
+            child: DragTarget(
+              builder: (
+                  BuildContext context,
+                  List<dynamic> accepted,
+                  List<dynamic> rejected,
+                  ) {
+                return Container(
+                  height: 100.0,
+                  color: Colors.cyan,
+                  child: Center(
+                    child: Text("Value is updated to: $acceptedData"),
+                  ),
+                );
+              },
+              onAccept: (int data) {
+                setState(() {
+                  acceptedData += data;
+                });
+              },
+            ),
+          ),
+        ),
+        Flexible(
+          flex: 1,
+          child: Container(
+            color: Colors.green,
+          ),
+        )
+      ],
     );
   }
 }
