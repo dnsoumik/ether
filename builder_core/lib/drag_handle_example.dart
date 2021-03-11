@@ -79,7 +79,7 @@ class _DragHandleExample extends State<DragHandleExample> {
         dragHandle: Padding(
           padding: EdgeInsets.only(right: 10),
           child: Icon(
-            Icons.highlight_remove,
+            Icons.crop,
             color: Colors.black26,
           ),
         ),
