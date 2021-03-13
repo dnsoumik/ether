@@ -160,7 +160,10 @@ export class AppComponent {
         event.previousIndex,
         event.currentIndex
       );
-      this.mainData.data[event.currentIndex].eId = Compute.getUniqueId();
+      setTimeout(() => {
+        this.mainData.data[event.currentIndex].eId = Compute.getUniqueId();
+        this.mainData.data[event.currentIndex] = JSON.parse(JSON.stringify(this.mainData.data[event.currentIndex]));
+      }, 200);
     }
   }
 
@@ -193,12 +196,32 @@ export class AppComponent {
     setTimeout(() => {
       this.currentSelectedIndex = j;
       this.mainData.data[j].eSelect = true;
-      this.currentSelectedItem = item;
+      this.currentSelectedItem = JSON.parse(JSON.stringify(item));
     }, 100);
   }
 
   onEdit(i: number, item: any): void {
     console.log(i, item);
+  }
+
+  onDiscard(j, item): void {
+    if (this.currentSelectedIndex != null) {
+      // console.log('id_matched_idx', item.eId);
+      console.log('id_matched_2', this.currentSelectedItem.eId);
+      for (let i = 0; i < this.mainData.data.length; i++) {
+        let idx = this.mainData.data[i];
+        if (idx.eId == this.currentSelectedItem.eId) {
+          this.mainData.data[i].eSelect = false;
+          j = i;
+          break;
+        }
+      }
+    }
+    setTimeout(() => {
+      this.currentSelectedIndex = null;
+      // this.mainData.data[j].eSelect = true;
+      this.currentSelectedItem = this.selectedElementDefault;
+    }, 100);
   }
 
   labelController = '';
