@@ -30,6 +30,7 @@ import { SelectComponent } from './components/select/select.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { MatSelectModule } from '@angular/material/select';
 import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
+import { PoweredByComponent } from './components/powered-by/powered-by.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
     CheckboxComponent,
     VesselComponent,
     SelectComponent,
-    DropdownComponent
+    DropdownComponent,
+    PoweredByComponent
   ],
   imports: [
     BrowserModule,

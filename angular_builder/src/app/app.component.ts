@@ -24,14 +24,6 @@ export class AppComponent {
         childs: [],
       },
       {
-        'id': 'button',
-        'label': 'Mat Raised Button',
-        'icon': 'smart_button',
-        "eSelect": false,
-        'eId': Compute.getUniqueId(),
-        childs: [],
-      },
-      {
         'id': 'checkbox',
         'label': 'Checkbox',
         'icon': 'check_box',
@@ -62,7 +54,15 @@ export class AppComponent {
             value: 'value3'
           }
         ]
-      }
+      },
+      {
+        'id': 'button',
+        'label': 'Button',
+        'icon': 'smart_button',
+        "eSelect": false,
+        'eId': Compute.getUniqueId(),
+        childs: [],
+      },
     ]
   };
 
