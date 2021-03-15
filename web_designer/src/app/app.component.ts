@@ -73,6 +73,7 @@ export class AppComponent {
     ],
     "style": {
       'width': '100%',
+      'height': 'auto',
       'min-height': '600px',
       'padding': '10px',
       'padding-top': '50px',
@@ -137,16 +138,201 @@ export class AppComponent {
               ]
             },
             {
-              "id": "input",
+              'id': 'dropdown',
+              'label': 'Funding Category',
+              'icon': 'arrow_drop_down_circle',
               "eSelect": false,
-              "label": "Phone number",
+              'eId': Compute.getUniqueId(),
+              childs: [
+                {
+                  text: 'State Scheme',
+                  value: 'State Scheme',
+                },
+                {
+                  text: 'Central Sector',
+                  value: 'Central Sector',
+                },
+                {
+                  text: 'Centrally Sponsored',
+                  value: 'Centrally Sponsored',
+                },
+                {
+                  text: 'N.E.C.',
+                  value: 'N.E.C.',
+                },
+                {
+                  text: 'NLCPR',
+                  value: 'NLCPR',
+                },
+                {
+                  text: 'RIDF',
+                  value: 'RIDF',
+                },
+                {
+                  text: 'NESIDS',
+                  value: 'NESIDS',
+                },
+                {
+                  text: 'SCA to TSS',
+                  value: 'SCA to TSS',
+                },
+                {
+                  text: 'Article 275(i)',
+                  value: 'Article 275(i)',
+                },
+                {
+                  text: 'EMRS',
+                  value: 'EMRS',
+                }
+              ]
+            },
+            {
+              'id': 'dropdown',
+              'label': 'Department',
+              'icon': 'arrow_drop_down_circle',
+              "eSelect": false,
+              'eId': Compute.getUniqueId(),
+              childs: [
+                {
+                  text: 'Under Secretary, Department',
+                  value: 'Under Secretary, Department'
+                },
+                {
+                  text: 'Financial Advisor',
+                  value: 'Financial Advisor'
+                },
+                {
+                  text: 'Secretary/ PS, Department',
+                  value: 'Secretary/ PS, Department'
+                },
+                {
+                  text: 'Departmental Sanction Committee',
+                  value: 'Departmental Sanction Committee'
+                },
+                {
+                  text: 'Minister In-Charge',
+                  value: 'Minister In-Charge'
+                },
+                {
+                  text: 'Planning department',
+                  value: 'Planning department'
+                },
+                {
+                  text: 'Joint Secretary (Finance dept)',
+                  value: 'Joint Secretary (Finance dept)'
+                },
+                {
+                  text: 'Secretary (Finance dept)',
+                  value: 'Secretary (Finance dept)'
+                }
+              ]
+            },
+            {
+              "id": "input",
+              "label": "Estimated Cost (Rs in Lakhs) *",
+              "eSelect": false,
               'eId': Compute.getUniqueId(),
               childs: [],
             },
             {
               "id": "input",
+              "label": "Current year Expenditure (Rs in Lakhs) *",
               "eSelect": false,
-              "label": "Email (optional)",
+              'eId': Compute.getUniqueId(),
+              childs: [],
+            },
+            {
+              "id": "input",
+              "label": "Budget Provision during the year",
+              "eSelect": false,
+              'eId': Compute.getUniqueId(),
+              childs: [],
+            },
+            {
+              "id": "input",
+              "label": "SDG Goal",
+              "eSelect": false,
+              'eId': Compute.getUniqueId(),
+              childs: [],
+            },
+            {
+              "id": "input",
+              "label": "KPI",
+              "eSelect": false,
+              'eId': Compute.getUniqueId(),
+              childs: [],
+            },
+            {
+              "id": "input",
+              "label": "KPI",
+              "eSelect": false,
+              'eId': Compute.getUniqueId(),
+              childs: [],
+            },
+            {
+              "id": "input",
+              "label": "Head of Account",
+              "eSelect": false,
+              'eId': Compute.getUniqueId(),
+              childs: [],
+            },
+            {
+              "id": "input",
+              "label": "Budget Provision Amount(Rs in Lakhs)",
+              "eSelect": false,
+              'eId': Compute.getUniqueId(),
+              childs: [],
+            },
+            {
+              "id": "input",
+              "label": "Justification / Objective of the Scheme",
+              "eSelect": false,
+              'eId': Compute.getUniqueId(),
+              childs: [],
+            },
+            {
+              "id": "input",
+              "label": "Cumulative Expenditure",
+              "eSelect": false,
+              'eId': Compute.getUniqueId(),
+              childs: [],
+            },
+            {
+              "id": "input",
+              "label": "Expenditure of previous FY",
+              "eSelect": false,
+              'eId': Compute.getUniqueId(),
+              childs: [],
+            },
+            {
+              'id': 'dropdown',
+              'label': 'Upload Type',
+              'icon': 'arrow_drop_down_circle',
+              "eSelect": false,
+              'eId': Compute.getUniqueId(),
+              childs: [
+                {
+                  text: 'Written Application',
+                  value: 'Written Application'
+                },
+                {
+                  text: 'Satisfaction Certificate',
+                  value: 'Satisfaction Certificate'
+                },
+                {
+                  text: 'Approval Letter',
+                  value: 'Approval Letter'
+                },
+                {
+                  text: 'Others',
+                  value: 'Others'
+                },
+              ]
+            },
+            {
+              "id": "input",
+              "label": "Comments / Suggestions / Notes",
+              "eSelect": false,
               'eId': Compute.getUniqueId(),
               childs: [],
             },
