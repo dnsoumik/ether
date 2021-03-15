@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, copyArrayItem } from '@angular/cdk/drag-drop';
 import { Compute } from './compute/compute';
 import { environment } from 'src/environments/environment';
+import { ActivatedRoute } from '@angular/router';
+import { Log } from './util/log_util';
 
 @Component({
   selector: 'app-root',
@@ -68,41 +70,6 @@ export class AppComponent {
 
   mainData = {
     "data": [
-      {
-        "id": "input",
-        "label": "First name",
-        "eSelect": false,
-        'eId': Compute.getUniqueId(),
-        childs: [],
-      },
-      {
-        "id": "input",
-        "label": "Last name",
-        "eSelect": false,
-        'eId': Compute.getUniqueId(),
-        childs: [],
-      },
-      {
-        "id": "input",
-        "eSelect": false,
-        "label": "Phone number",
-        'eId': Compute.getUniqueId(),
-        childs: [],
-      },
-      {
-        "id": "input",
-        "eSelect": false,
-        "label": "Email (optional)",
-        'eId': Compute.getUniqueId(),
-        childs: [],
-      },
-      {
-        "id": "button",
-        "eSelect": false,
-        "label": "Submit",
-        'eId': Compute.getUniqueId(),
-        childs: [],
-      }
     ],
     "style": {
       'width': '100%',
@@ -112,6 +79,89 @@ export class AppComponent {
       'padding-bottom': '50px',
     }
   };
+
+  constructor(private activatedRoute: ActivatedRoute) {
+    
+  }
+
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.activatedRoute.queryParams.subscribe(params => {
+
+        const parms: Object = params;
+        Log.i('params', parms);
+        if (parms['edit'] != undefined && parms['edit'] != null && parms['edit'] == 'true') {
+          this.mainData.data = [
+            {
+              "id": "input",
+              "label": "Title of the Scheme",
+              "eSelect": false,
+              'eId': Compute.getUniqueId(),
+              childs: [],
+            },
+            {
+              'id': 'dropdown',
+              'label': 'Scheme Category',
+              'icon': 'arrow_drop_down_circle',
+              "eSelect": false,
+              'eId': Compute.getUniqueId(),
+              childs: [
+                {
+                  text: 'Capital Expenditure',
+                  value: 'Capital Expenditure',
+                },
+                {
+                  text: 'Construction',
+                  value: 'Resort',
+                },
+                {
+                  text: 'Vehicle',
+                  value: 'Guest House',
+                },
+                {
+                  text: 'Mechinery and Equipment',
+                  value: 'Homestay',
+                },
+                {
+                  text: 'Scholarship',
+                  value: 'Scholarship',
+                },
+                {
+                  text: 'Grant in Aid/Subsidy',
+                  value: 'Scholarship',
+                },
+                {
+                  text: 'Cretion of Posts',
+                  value: 'Cretion of Posts',
+                }
+              ]
+            },
+            {
+              "id": "input",
+              "eSelect": false,
+              "label": "Phone number",
+              'eId': Compute.getUniqueId(),
+              childs: [],
+            },
+            {
+              "id": "input",
+              "eSelect": false,
+              "label": "Email (optional)",
+              'eId': Compute.getUniqueId(),
+              childs: [],
+            },
+            {
+              "id": "button",
+              "eSelect": false,
+              "label": "Submit",
+              'eId': Compute.getUniqueId(),
+              childs: [],
+            }
+          ]
+        }
+      });
+    }, 200);
+  }
 
   get mainDataInString() {
     return JSON.stringify(this.mainData, null, 4);
