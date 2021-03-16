@@ -140,7 +140,7 @@ class AppState extends State<App> {
                             children: vesselViewer(),
                           );
                         },
-                        onAccept: (Map data) {
+                        onAccept: (data) {
                           setState(() {
                             mainData.add(data);
                             // acceptedData += data;
