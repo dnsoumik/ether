@@ -74,6 +74,76 @@ class AppState extends State<App> {
                 "value": 19
               }
             ]
+          },
+          {
+            "eId": "dropdown",
+            "label": "Dropdown",
+            "icon": "input",
+            "eSelect": false,
+            "id": "",
+            "children": [
+              {
+                "text": "",
+                "valueType": "string",
+                "value": 19
+              }
+            ]
+          },
+          {
+            "eId": "checkbox",
+            "label": "Checkbox",
+            "icon": "input",
+            "eSelect": false,
+            "id": "",
+            "children": [
+              {
+                "text": "",
+                "valueType": "string",
+                "value": 19
+              }
+            ]
+          },
+          {
+            "eId": "divider",
+            "label": "Divider",
+            "icon": "input",
+            "eSelect": false,
+            "id": "",
+            "children": [
+              {
+                "text": "",
+                "valueType": "string",
+                "value": 19
+              }
+            ]
+          },
+          {
+            "eId": "toggle",
+            "label": "Toggle Button",
+            "icon": "input",
+            "eSelect": false,
+            "id": "",
+            "children": [
+              {
+                "text": "",
+                "valueType": "string",
+                "value": 19
+              }
+            ]
+          },
+          {
+            "eId": "progressbar",
+            "label": "Progressbar",
+            "icon": "input",
+            "eSelect": false,
+            "id": "",
+            "children": [
+              {
+                "text": "",
+                "valueType": "string",
+                "value": 19
+              }
+            ]
           }
         ]
       }
@@ -333,6 +403,14 @@ class AppState extends State<App> {
       tileIcon = Icons.smart_button;
     } else if (component['eId'] == 'input') {
       tileIcon = Icons.input;
+    } else if (component['eId'] == 'checkbox') {
+      tileIcon = Icons.check_box;
+    } else if (component['eId'] == 'dropdown') {
+      tileIcon = Icons.arrow_drop_down_circle_outlined;
+    } else if (component['eId'] == 'toggle') {
+      tileIcon = Icons.toggle_off_outlined;
+    } else if (component['eId'] == 'progressbar') {
+      tileIcon = Icons.upload_outlined;
     }
 
     return Card(
@@ -389,6 +467,21 @@ class AppState extends State<App> {
           ),
           onPressed: () {
           },
+        ),
+      );
+    } else if (data['eId'] == 'checkbox') {
+      vessel = Container(
+        width: MediaQuery.of(context).size.width,
+        child: Row(
+          children: [
+            Checkbox(
+              value: true,
+              onChanged: (a) {
+
+              },
+            ),
+            Text(data['label'])
+          ],
         ),
       );
     }
