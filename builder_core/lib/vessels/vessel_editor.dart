@@ -9,6 +9,8 @@ class VesselEditor extends StatefulWidget {
 class _VesselEditorState extends State<VesselEditor> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      child: Text('Vessel'),
+    );
   }
 }

@@ -102,7 +102,7 @@ class AppState extends State<App> {
         "I": "How are you?",
         "You": "Excellent!"}
         ''';
-    Map<String, dynamic> jsonObj = jsonDecode(json.encode({"root": mainData}));
+    Map<String, dynamic> jsonObj = json.decode(json.encode({"root": mainData}));
     return Scaffold(
       appBar: AppBar(
         title: Text('Ether v1.0.0'),
@@ -242,7 +242,7 @@ class AppState extends State<App> {
                         flex: 1,
                           child: SafeArea(
                             child: SingleChildScrollView(
-                                child: JsonViewerWidget(jsonObj)
+                                child: JsonViewerWidget(jsonObj, notRoot: true,)
                             ),
                           ),
                       ),
@@ -254,7 +254,50 @@ class AppState extends State<App> {
                   ),
                 ],
               ),
-            )
+            ),
+            Container(
+              margin: EdgeInsets.only(
+                top: 20,
+                left: 20,
+                right: 20,
+                bottom: 80,
+              ),
+              child: Column(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(
+                      top: 20,
+                      bottom: 20,
+                      // left: 20,
+                      // right: 20,
+                    ),
+                    padding: EdgeInsets.only(
+                      top: 10,
+                      bottom: 10,
+                    ),
+                    width: MediaQuery.of(context).size.width,
+                    alignment: Alignment.center,
+                    color: Colors.green[300],
+                    child: Text(
+                      'View Renderer',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black),
+                    ),
+                    padding: EdgeInsets.all(10),
+                    child: Column(
+                      children: vesselViewer(),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
