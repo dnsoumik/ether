@@ -279,6 +279,19 @@ class AppState extends State<App> {
   }
 
   Widget buildComponent(Map component) {
+
+    log('text' + component.toString());
+    IconData tileIcon = Icons.text_fields;
+    if (component['eId'] == 'text') {
+      tileIcon = Icons.text_fields;
+    } else if (component['eId'] == 'input') {
+      tileIcon = Icons.input;
+    } else if (component['eId'] == 'button') {
+      tileIcon = Icons.smart_button;
+    } else if (component['eId'] == 'input') {
+      tileIcon = Icons.input;
+    }
+
     return Card(
       child: Container(
         constraints: BoxConstraints(
@@ -287,7 +300,7 @@ class AppState extends State<App> {
         ),
         child: ListTile(
           leading: Icon(
-            Icons.text_fields,
+            tileIcon,
           ),
           title: Text(component['label']),
         ),
