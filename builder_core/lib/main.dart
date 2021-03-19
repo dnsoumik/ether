@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 
+import 'package:ether/vessels/vessel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
@@ -434,7 +435,7 @@ class AppState extends State<App> {
 
     for (int i =0; i < mainData.length; i++) {
       list.add(
-        buildVessel(mainData[i])
+        Vessel(data: mainData[i])
       );
     }
     return list;
