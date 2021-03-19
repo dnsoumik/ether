@@ -74,7 +74,7 @@ class _VesselState extends State<Vessel> {
           value: label,
         ))
             .toList(),
-        hint: Text('Rating'),
+        hint: Text(data['label']),
         onChanged: (value) {
           // setState(() {
           //   _ratingController = value;
