@@ -154,20 +154,7 @@ class AppState extends State<App> {
   ];
 
   List<Map> mainData = [
-    {
-      "eId": "input",
-      "label": "Text Field",
-      "icon": "input",
-      "eSelect": false,
-      "id": Compute.getUniqueKey(),
-      "children": [
-        {
-          "text": "",
-          "valueType": "string",
-          "value": 19
-        }
-      ]
-    }
+
   ];
 
   TextEditingController _labelEditor = new TextEditingController();
