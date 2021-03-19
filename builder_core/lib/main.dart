@@ -1,7 +1,9 @@
 import 'dart:convert';
 import 'dart:developer';
 
+import 'package:ether/compute.dart';
 import 'package:ether/vessels/vessel.dart';
+import 'package:ether/vessels/vessel_editor.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
@@ -39,7 +41,7 @@ class AppState extends State<App> {
             "label": "Text",
             "icon": "text_fields",
             "eSelect": false,
-            "id": "",
+            "id": Compute.getUniqueKey(),
             "children": [
               {
                 "text": "",
@@ -53,7 +55,7 @@ class AppState extends State<App> {
             "label": "Input Field",
             "icon": "input",
             "eSelect": false,
-            "id": "",
+            "id": Compute.getUniqueKey(),
             "children": [
               {
                 "text": "",
@@ -67,7 +69,7 @@ class AppState extends State<App> {
             "label": "Button",
             "icon": "input",
             "eSelect": false,
-            "id": "",
+            "id": Compute.getUniqueKey(),
             "children": [
               {
                 "text": "",
@@ -81,7 +83,7 @@ class AppState extends State<App> {
             "label": "Dropdown",
             "icon": "input",
             "eSelect": false,
-            "id": "",
+            "id": Compute.getUniqueKey(),
             "children": [
               {
                 "text": "",
@@ -95,7 +97,7 @@ class AppState extends State<App> {
             "label": "Checkbox",
             "icon": "input",
             "eSelect": false,
-            "id": "",
+            "id": Compute.getUniqueKey(),
             "children": [
               {
                 "text": "",
@@ -109,7 +111,7 @@ class AppState extends State<App> {
             "label": "Divider",
             "icon": "input",
             "eSelect": false,
-            "id": "",
+            "id": Compute.getUniqueKey(),
             "children": [
               {
                 "text": "",
@@ -123,7 +125,7 @@ class AppState extends State<App> {
             "label": "Toggle Button",
             "icon": "input",
             "eSelect": false,
-            "id": "",
+            "id": Compute.getUniqueKey(),
             "children": [
               {
                 "text": "",
@@ -137,7 +139,7 @@ class AppState extends State<App> {
             "label": "Progressbar",
             "icon": "input",
             "eSelect": false,
-            "id": "",
+            "id": Compute.getUniqueKey(),
             "children": [
               {
                 "text": "",
@@ -156,7 +158,7 @@ class AppState extends State<App> {
       "label": "Text Field",
       "icon": "input",
       "eSelect": false,
-      "id": "",
+      "id": Compute.getUniqueKey(),
       "children": [
         {
           "text": "",
@@ -199,6 +201,13 @@ class AppState extends State<App> {
                   Flexible(
                     flex: 3,
                     child: Container(
+                      padding: EdgeInsets.all(10),
+                      margin: EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.black,
+                        )
+                      ),
                       width: MediaQuery.of(context).size.width,
                       height: MediaQuery.of(context).size.height,
                       child: DragTarget<Map>(
@@ -208,11 +217,12 @@ class AppState extends State<App> {
                             List<dynamic> rejected,
                             ) {
                           return Column(
-                            children: vesselViewer(),
+                            children: vesselEditor(),
                           );
                         },
                         onAccept: (data) {
                           setState(() {
+                            data['id'] = Compute.getUniqueKey();
                             mainData.add(data);
                             // acceptedData += data;
                           });
@@ -417,7 +427,7 @@ class AppState extends State<App> {
     return Card(
       child: Container(
         constraints: BoxConstraints(
-          minWidth: 100,
+          minWidth: 200,
           maxWidth: 200,
         ),
         child: ListTile(
@@ -436,6 +446,17 @@ class AppState extends State<App> {
     for (int i =0; i < mainData.length; i++) {
       list.add(
         Vessel(data: mainData[i])
+      );
+    }
+    return list;
+  }
+
+  List<Widget> vesselEditor() {
+    List<Widget> list = [];
+
+    for (int i =0; i < mainData.length; i++) {
+      list.add(
+          VesselEditor(data: mainData[i])
       );
     }
     return list;

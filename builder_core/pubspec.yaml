@@ -29,6 +29,7 @@ dependencies:
   drag_and_drop_lists:
   flutter_icons: ^0.1.4
   flutter_json_widget: ^1.0.2
+  uuid: ^3.0.1
 
 dev_dependencies:
   flutter_test:
