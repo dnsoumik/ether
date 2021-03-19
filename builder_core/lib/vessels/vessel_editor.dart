@@ -16,53 +16,51 @@ class VesselEditor extends StatefulWidget {
 class _VesselEditorState extends State<VesselEditor> {
   @override
   Widget build(BuildContext context) {
-    return HoverWidget(
-      child: Container(
-        child: buildVessel(widget.data),
-      ),
-      hoverChild: Stack(
-        alignment: Alignment.topLeft,
-        children: [
-          buildElementVision(),
-          IgnorePointer(
-            ignoring: true,
+    return Stack(
+      children: [
+        (widget.data['eSelect'] ==  true)? buildElementVision(Colors.deepOrangeAccent): Container(),
+        HoverWidget(
+          child: Container(
+            alignment: Alignment.center,
             child: buildVessel(widget.data),
           ),
-        ],
-      ),
-      onHover: (event) {
+          hoverChild: Stack(
+            alignment: Alignment.topLeft,
+            children: [
+              buildElementVision(Colors.blue[800]),
+              buildVessel(widget.data),
+            ],
+          ),
+          onHover: (event) {
 
-      },
+          },
+        ),
+      ],
     );
   }
 
-  Widget buildElementVision() {
-    return InkWell(
-      onTap: () {
-        log('clicked');
-      },
-      child: Container(
-        decoration: BoxDecoration(
-          border: Border.all(
-              color: Colors.blue,
-              width: 2
-          ),
+  Widget buildElementVision(Color backColor) {
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(
+            color: backColor,
+            width: 2
         ),
-        height: 70,
-        width: MediaQuery.of(context).size.width,
-        // color: Colors.blue[900].withAlpha(150),
-        alignment: Alignment.topLeft,
-        child: Container(
-          color: Colors.blue,
-          padding: EdgeInsets.only(
-            left: 10,
-            right: 20,
-          ),
-          child: Text(
-            widget.data['eId'],
-            style: TextStyle(
-              color: Colors.white,
-            ),
+      ),
+      height: 70,
+      width: MediaQuery.of(context).size.width,
+      // color: Colors.blue[900].withAlpha(150),
+      alignment: Alignment.topLeft,
+      child: Container(
+        color: backColor,
+        padding: EdgeInsets.only(
+          left: 10,
+          right: 20,
+        ),
+        child: Text(
+          widget.data['eId'],
+          style: TextStyle(
+            color: Colors.white,
           ),
         ),
       ),
@@ -74,6 +72,7 @@ class _VesselEditorState extends State<VesselEditor> {
 
     if (data['eId'] == 'input') {
       vessel = Container(
+        width: MediaQuery.of(context).size.width,
         child: TextField(
           decoration: InputDecoration(
               labelText: data['label']
@@ -82,6 +81,7 @@ class _VesselEditorState extends State<VesselEditor> {
       );
     } else if (data['eId'] == 'text') {
       vessel = Container(
+        width: MediaQuery.of(context).size.width,
         child: Text(
             data['label']
         ),
@@ -111,6 +111,25 @@ class _VesselEditorState extends State<VesselEditor> {
             Text(data['label'])
           ],
         ),
+      );
+    } else if (data['eId'] == 'dropdown') {
+      vessel = DropdownButtonFormField<String>(
+        value: '1',
+        decoration: InputDecoration(
+          labelText: data['label'],
+        ),
+        items: ['1', '2', '3', '4', '5']
+            .map((label) => DropdownMenuItem(
+          child: Text(label.toString()),
+          value: label,
+        ))
+            .toList(),
+        hint: Text('Rating'),
+        onChanged: (value) {
+          // setState(() {
+          //   _ratingController = value;
+          // });
+        },
       );
     }
 

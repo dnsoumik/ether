@@ -62,6 +62,25 @@ class _VesselState extends State<Vessel> {
           ],
         ),
       );
+    } else if (data['eId'] == 'dropdown') {
+      vessel = DropdownButtonFormField<String>(
+        value: '1',
+        decoration: InputDecoration(
+          labelText: data['label'],
+        ),
+        items: ['1', '2', '3', '4', '5']
+            .map((label) => DropdownMenuItem(
+          child: Text(label.toString()),
+          value: label,
+        ))
+            .toList(),
+        hint: Text('Rating'),
+        onChanged: (value) {
+          // setState(() {
+          //   _ratingController = value;
+          // });
+        },
+      );
     }
 
     vessel = Container(

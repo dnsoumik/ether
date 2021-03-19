@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:developer';
 
@@ -169,6 +170,8 @@ class AppState extends State<App> {
     }
   ];
 
+  TextEditingController _labelEditor = new TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     var testString = '''{
@@ -217,13 +220,14 @@ class AppState extends State<App> {
                             List<dynamic> rejected,
                             ) {
                           return Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: vesselEditor(),
                           );
                         },
                         onAccept: (data) {
                           setState(() {
                             data['id'] = Compute.getUniqueKey();
-                            mainData.add(data);
+                            mainData.add(new Map.from(data));
                             // acceptedData += data;
                           });
                         },
@@ -270,11 +274,58 @@ class AppState extends State<App> {
                             ),
                             body: new TabBarView(
                               children: <Widget>[
+                                (selectElement != null)? Column(
+                                  children: <Widget>[
+                                    Text('Basic setting'),
+                                    TextField(
+                                      controller: _labelEditor,
+                                      decoration: InputDecoration(
+                                        labelText: 'Label'
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 40,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        ElevatedButton(
+                                            onPressed: () {
+                                              onSave();
+                                            },
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              Text('Save'),
+                                              Icon(Icons.check),
+                                            ],
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          width: 20,
+                                        ),
+                                        ElevatedButton(
+                                          onPressed: () {
+                                            onDiscard();
+                                          },
+                                          style: ElevatedButton.styleFrom(
+                                            primary: Colors.red, // background
+                                            onPrimary: Colors.white, // foreground
+                                          ),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              Text('Discard'),
+                                              Icon(Icons.close),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ): Container(),
                                 new Column(
-                                  children: <Widget>[new Text("Lunches Page")],
-                                ),
-                                new Column(
-                                  children: <Widget>[new Text("Cart Page")],
+                                  children: <Widget>[new Text("Style page")],
                                 )
                               ],
                             ),
@@ -402,6 +453,28 @@ class AppState extends State<App> {
     return list;
   }
 
+  onSave() {
+    selectElement['label'] = _labelEditor.text;
+    for (int i =0; i < mainData.length; i++) {
+      var idx = mainData[i];
+      if (idx['id'] == selectElement['id']) {
+        setState(() {
+          mainData[i] = selectElement;
+        });
+        break;
+      }
+    }
+  }
+
+  onDiscard() {
+    for (int i =0; i < mainData.length; i++) {
+      mainData[i]['eSelect'] = false;
+    }
+    setState(() {
+      selectElement = null;
+    });
+  }
+
   Widget buildComponent(Map component) {
 
     log('text' + component.toString());
@@ -451,73 +524,40 @@ class AppState extends State<App> {
     return list;
   }
 
+  Map selectElement;
+  void onTapVessel(int idx) {
+    for (int i =0; i < mainData.length; i++) {
+      mainData[i]['eSelect'] = false;
+    }
+    Timer(Duration(milliseconds: 400), () {
+      setState(() {
+        selectElement = mainData[idx];
+        mainData[idx]['eSelect'] = true;
+        _labelEditor.text = selectElement['label'];
+      });
+    });
+  }
+
   List<Widget> vesselEditor() {
     List<Widget> list = [];
 
     for (int i =0; i < mainData.length; i++) {
       list.add(
-          VesselEditor(data: mainData[i])
+          InkWell(
+            onTap: () {
+              log('clicked');
+              onTapVessel(i);
+            },
+            child: IgnorePointer(
+              ignoring: true,
+              child: VesselEditor(
+                  data: mainData[i],
+              ),
+            ),
+          )
       );
     }
     return list;
-  }
-
-  Widget buildVessel(Map data) {
-    Widget vessel = Text('N/A');
-
-
-    if (data['eId'] == 'input') {
-      vessel = Container(
-        child: TextField(
-          decoration: InputDecoration(
-            labelText: data['label']
-          ),
-        ),
-      );
-    } else if (data['eId'] == 'text') {
-      vessel = Container(
-        child: Text(
-            data['label']
-        ),
-      );
-    } else if (data['eId'] == 'button') {
-      vessel = Container(
-        width: MediaQuery.of(context).size.width,
-        child: ElevatedButton(
-          child: Text(
-              data['label'],
-          ),
-          onPressed: () {
-          },
-        ),
-      );
-    } else if (data['eId'] == 'checkbox') {
-      vessel = Container(
-        width: MediaQuery.of(context).size.width,
-        child: Row(
-          children: [
-            Checkbox(
-              value: true,
-              onChanged: (a) {
-
-              },
-            ),
-            Text(data['label'])
-          ],
-        ),
-      );
-    }
-
-    vessel = Container(
-      margin: EdgeInsets.only(
-        top: 10,
-        right: 10,
-        bottom: 10,
-      ),
-      child: vessel,
-    );
-
-    return vessel;
   }
 
 }
