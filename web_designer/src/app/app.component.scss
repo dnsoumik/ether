@@ -1,0 +1,231 @@
+.basic_drag {
+  padding: 20px;
+  margin-bottom: 10px;
+}
+
+.basic_drag:hover {
+  background-color: #0077c2;
+  .mat-icon {
+    color: white;
+  }
+  color: white;
+  cursor: pointer;
+}
+
+#preview_container {
+  border: 1px solid black;
+}
+
+.component_viewer:hover {
+  background-color: rgb(238, 238, 238);
+}
+
+.action_viewer {
+  display: none;
+}
+
+.action_viewer {
+  display: none;
+}
+
+.component_viewer:hover + .action_viewer {
+  display: block;
+  z-index: 5;
+  position: absolute;
+}
+
+.template_viewer {
+  border: 1px solid black;
+  width: 100%;
+  height: 600px;
+}
+
+.template_title {
+  background-color: #bbdaee;
+  padding: 10px;
+  font-size: 16pt;
+  margin-bottom: 20px;
+  margin-left: 0px;
+  margin-right: 0px;
+  // width: 100%;
+  text-align: center;
+}
+
+// .component_viewer:hover {
+//   // background-color: #999;
+// }
+
+.action_viewer:hover + .component_viewer {
+  display: none;
+  // background-color: #999;
+}
+
+.example-handle {
+  cursor: move;
+  width: 15px;
+  height: 15px;
+  margin-top: 4px;
+  margin-right: 10px;
+}
+
+
+.example-list {
+  width: 500px;
+  max-width: 100%;
+  border: solid 1px #ccc;
+  min-height: 60px;
+  display: block;
+  background: white;
+  // border-radius: 4px;
+  overflow: hidden;
+}
+
+.example-box {
+  // border-bottom: solid 1px #ccc;
+  // color: rgba(0, 0, 0, 0.87);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  // box-sizing: border-box;
+  // cursor: move;
+  background: white;
+  font-size: 14px;
+}
+
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 4px;
+  // box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+  //             0 8px 10px 1px rgba(0, 0, 0, 0.14),
+  //             0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.example-box:last-child {
+  border: none;
+}
+
+.example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.example-custom-placeholder {
+  background: #ccc;
+  border: dotted 3px #999;
+  min-height: 80px;
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.id_panel {
+  background-color: #005cb2;
+  // background-color: white;
+  padding: 1px;
+  padding-left: 20px;
+  padding-right: 20px;
+  // border-radius: 5px;
+}
+
+.edit_id_panel {
+  background-color: #c63f17;
+  padding: 1px;
+  padding-left: 20px;
+  padding-right: 20px;
+  position: absolute;
+  z-index: 10;
+  top: -24px;
+  left: 0%;
+  height: 20px;
+  border: 2px solid #c63f17;
+  border-radius: 5px 5px 0px 0px;
+}
+
+div.component_panel {
+  position: relative;
+  float: left;
+  margin: 5px;
+}
+// div.component_panel:hover .vessel_panel {
+//   // opacity: 0.9;
+//   // border: 2px solid rgb(51, 168, 204);
+//   // border-radius: 5px;
+//   // box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+//   //   0 5px 5px 1px rgba(0, 0, 0, 0.14), 0 3px 5px 2px rgba(0, 0, 0, 0.12);
+// }
+div.component_panel:hover .id_panel {
+  transition: 3s;
+  display: inline-block;
+}
+div.component_panel .id_panel {
+  position: absolute;
+  display: none;
+}
+div.component_panel .id_panel {
+  top: -20px;
+  left: 0%;
+  height: 20px;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.boundary_panel {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+}
+
+.action_boundary_panel {
+  border: 2px solid #f4511e;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+}
+
+div.component_panel:hover .boundary_panel {
+  display: block;
+  border: 2px solid #005cb2;
+}
+
+.action_panel {
+  background-color: #f4511e;
+  border-radius: 6px 6px 0px 0px;
+  padding: 2px;
+  padding-left: 20px;
+  padding-right: 20px;
+  position: absolute;
+  right: -0%;
+  top: -44px;
+  z-index: 10;
+  max-height: 50px;
+}
+
+.mat-icon-button:hover {
+  background-color: rgba(0, 0, 0, 0.336);
+}
+
+::ng-deep .mat-tooltip {
+  color: white;
+  background-color: black;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 9pt;
+}
+
+.json_viewer {
+  padding: 20px;
+  // max-height: 800px;
+  // height: 800px;
+  // overflow: auto;
+}
+
+.template_main {
+  margin-top: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 60px;
+}

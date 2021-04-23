@@ -1,0 +1,10 @@
+<div class="drop_down_list">
+  <mat-form-field fxFlex="100" appearance="outline">
+    <mat-label>{{value.label}}</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let elem of value.childs" [value]="elem.value">
+        {{elem.text}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

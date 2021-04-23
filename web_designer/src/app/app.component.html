@@ -1,0 +1,219 @@
+<ng-snotify></ng-snotify>
+<div fxLayout="column">
+  <div fxLayoutAlign="center center">
+    <mat-toolbar color="primary" fxLayoutAlign="start center">
+      <img width="40" src="https://api.xlayer.in/assets/logo.png" style="padding-right: 10px;">
+      <span>xLayer Ether</span>
+    </mat-toolbar>
+  </div>
+  <div>
+    <div fxFlex="15" style="padding: 20px;">
+      <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="componentList.basic"
+        [cdkDropListConnectedTo]="[doneList]">
+        <div class="basic_drag mat-elevation-z4" *ngFor="let comp of componentList.basic" cdkDrag>
+          <div fxLayout="row">
+            <mat-icon style="margin-right: 5px; font-size: 16pt;">{{comp.icon}}</mat-icon>
+            <div style="font-size: 12pt;">{{comp.label}}</div>
+          </div>
+          <div class="example-custom-placeholder" *cdkDragPlaceholder fxLayoutAlign="center center">
+            <mat-icon>keyboard_arrow_left</mat-icon>
+            <div>
+              Drop here
+            </div>
+            <mat-icon>keyboard_arrow_right</mat-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div fxFlex="65" fxLayout="column" fxLayoutAlign="start stretch">
+      <div fxLayout="column" fxLayoutAlign="center center">
+        <div style="text-align: center;">
+          <div fxLayout="row">
+            <div style="padding: 10px; margin-right: 10px; font-size: 12pt;">
+              Element Builder
+            </div>
+            <button mat-icon-button matTooltip="Mobile view" (click)="onMobilePreview()">
+              <mat-icon>phone_iphone</mat-icon>
+            </button>
+            <button mat-icon-button matTooltip="Desktop view" (click)="onDesktopPreview()">
+              <mat-icon>computer</mat-icon>
+            </button>
+          </div>
+        </div>
+        <div id="preview_container" class="example-list" [style]="mainData.style" cdkDropList #doneList="cdkDropList"
+          [cdkDropListData]="mainData.data" [cdkDropListConnectedTo]="[todoList]" (cdkDropListDropped)="drop2($event)">
+          <div fxLayout="row" fxLayoutAlign="space-evenly stretch" style="width: 100%;" class="example-box"
+            *ngFor="let item of mainData.data; let i = index; let l = count;" cdkDrag>
+            <div class="component_panel" fxLayout="column" style="width: 100%;">
+              <div (click)="onSelected(i, item)" class="vessel_panel" fxLayout="column" style="width: 100%;">
+                <div>
+                  <div>
+                    <app-vessel [value]="item"></app-vessel>
+                  </div>
+                </div>
+                <div class="example-custom-placeholder" *cdkDragPlaceholder fxLayoutAlign="center center">
+                  <mat-icon>keyboard_arrow_left</mat-icon>
+                  <div>
+                    Drop here
+                  </div>
+                  <mat-icon>keyboard_arrow_right</mat-icon>
+                </div>
+                <div class="boundary_panel">
+                </div>
+                <div [fxShow]="item.eSelect" class="action_boundary_panel"
+                  style="width: 100%; height: 100%; position: absolute; z-index: 2;">
+                </div>
+              </div>
+              <div class="id_panel">
+                <b style="color: white;">{{item.id}}</b>
+              </div>
+              <div [fxShow]="item.eSelect" class="edit_id_panel">
+                <b style="color: white;">{{item.id}}</b>
+              </div>
+              <div class="action_panel" [fxShow]="item.eSelect">
+                <button style="cursor: move;" cdkDragHandle matTooltip="Move" mat-icon-button>
+                  <span style="color: white; font-size: 20pt;" class="iconify" data-icon="mdi:cursor-move"
+                    data-inline="false"></span>
+                </button>
+                <button [disabled]="i == 0" matTooltip="Move Up" mat-icon-button (click)="onMoveUp(i, item)">
+                  <mat-icon *ngIf="i > 0" style="color: white;">arrow_upward</mat-icon>
+                  <mat-icon *ngIf="i == 0" style="color: rgb(190, 181, 181);">arrow_upward</mat-icon>
+                </button>
+                <button [disabled]="i == l-1" matTooltip="Move Up" mat-icon-button (click)="onMoveDown(i, item)">
+                  <mat-icon *ngIf="i < l-1" style="color: white;">arrow_downward</mat-icon>
+                  <mat-icon *ngIf="i == l-1" style="color: rgb(190, 181, 181);">arrow_downward</mat-icon>
+                </button>
+                <button matTooltip="Clone" mat-icon-button (click)="onClone(i, item)">
+                  <mat-icon style="color: white;">content_copy</mat-icon>
+                </button>
+                <button matTooltip="Delete" mat-icon-button (click)="onDelete(i, item)">
+                  <mat-icon style="color: white;">delete</mat-icon>
+                </button>
+                <button matTooltip="Close" mat-icon-button (click)="onClear(i)">
+                  <mat-icon style="color: white;">clear</mat-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div fxFlex="20" style="padding: 20px;">
+      <div style="max-width: 100%; height: auto; min-height: 600px;">
+        <mat-tab-group mat-align-tabs="center">
+
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <mat-icon class="example-tab-icon">vertical_split</mat-icon>
+              Content
+            </ng-template>
+            <ng-template matTabContent>
+              <div *ngIf="currentSelectedIndex == null" style="padding: 10px; padding-top: 30px;">
+                select an element
+              </div>
+              <div *ngIf="currentSelectedIndex != null" style="padding: 10px; padding-top: 30px;">
+                <div style="font-size: 16pt;">
+                  Element : {{currentSelectedItem.id}}
+                </div>
+                <div>
+                  <div style="margin-top: 30px; font-size: 14pt;">
+                    <u>Basic setting</u>
+                  </div>
+                  <mat-form-field style="width: 100%; margin-top: 20px;" appearance="outline">
+                    <mat-label>Label</mat-label>
+                    <input matInput [(ngModel)]="currentSelectedItem.label">
+                  </mat-form-field>
+                  <div *ngIf="currentSelectedItem.childs.length">
+                    <div style="margin-top: 30px; font-size: 14pt;">
+                      <u>Children</u>
+                    </div>
+                    <div *ngIf="currentSelectedItem.id == 'dropdown'">
+                      <mat-form-field *ngFor="let elem of currentSelectedItem.childs"
+                        style="width: 100%; margin-top: 20px;" appearance="outline">
+                        <mat-label>Label</mat-label>
+                        <input matInput [(ngModel)]="elem.text">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+                <div style="width: 100%; margin-top: 20px;" fxLayoutGap="10px" fxLayoutAlign="center center">
+                  <button style="border-radius: 10px;" matTooltip="Save" mat-raised-button color="primary"
+                    (click)="onSave(i)">
+                    Save
+                    <mat-icon style="color: white;">check</mat-icon>
+                  </button>
+                  <button style="border-radius: 10px;" matTooltip="Discard" mat-raised-button color="warn"
+                    (click)="onDiscard(i, item)">
+                    Discard
+                    <mat-icon style="color: white;">clear</mat-icon>
+                  </button>
+                </div>
+              </div>
+            </ng-template>
+          </mat-tab>
+
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <mat-icon class="example-tab-icon">brush</mat-icon>
+              Style
+            </ng-template>
+            Content 2
+          </mat-tab>
+
+        </mat-tab-group>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="json_viewer" fxLayout="row">
+    <div fxFlex="50" style="padding: 20px;">
+      <b style="font-size: 16pt;">Meta Data Editor [ JSON ]</b>
+      <div style="height: 20px;"></div>
+      <ace-editor [(text)]="mainDataInString" [theme]="'eclipse'" mode="json" style="height:100%; font-size: 1rem;">
+      </ace-editor>
+    </div>
+    <div fxFlex="50" style="padding: 20px;">
+      <b style="font-size: 16pt;">Meta Data Viewer [ JSON ]</b>
+      <div style="height: 20px;"></div>
+      <ngx-json-viewer [json]="mainData" style="height: 100%; overflow: auto;"></ngx-json-viewer>
+    </div>
+  </div> -->
+
+  <div class="template_main" fxLayout="column" fxLayoutAlign="center stretch">
+    <div class="template_title">
+      Rendered View
+    </div>
+    <div style="text-align: center; margin-bottom: 30px;">
+      <div>
+        <button mat-icon-button matTooltip="Mobile view" (click)="onMobilePreview()">
+          <mat-icon>phone_iphone</mat-icon>
+        </button>
+        <button mat-icon-button matTooltip="Desktop view" (click)="onDesktopPreview()">
+          <mat-icon>computer</mat-icon>
+        </button>
+      </div>
+    </div>
+    <div fxLayoutAlign="center center">
+      <div id="template_viewer" class="template_viewer" [style]="mainData.style">
+        <div fxLayout="row" fxLayoutAlign="space-evenly stretch"
+          *ngFor="let item of mainData.data; let i = index; let l = count;" cdkDrag>
+          <div fxLayout="column" style="width: 100%;">
+            <div class="vessel_panel" fxLayout="column" style="width: 100%;">
+              <div>
+                <div style="padding: 5px;">
+                  <app-vessel [value]="item"></app-vessel>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<app-powered-by>
+
+</app-powered-by>
