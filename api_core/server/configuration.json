@@ -1,0 +1,197 @@
+{
+    "name": "MTIME",
+    "server": "DEV",
+    "version": "2.000.000",
+    "projectCode": 2120,
+    "url": "https://app.meghalayatourism.in",
+    "password": null,
+    "uploads": "./../../uploads/",
+    "uploadsPath": "/uploads/",
+    "tmpUploadsPath": "tmp/",
+    "timeOffsetIST": 19800,
+    "instance": [
+        {
+            "api": "web",
+            "host": "127.0.0.1",
+            "port": 3120
+        },
+        {
+            "api": "location",
+            "host": "127.0.0.1",
+            "port": 2121
+        },
+        {
+            "api": "web_v2",
+            "host": "127.0.0.1",
+            "port": 3122
+        },
+        {
+            "api": "timer",
+            "host": "127.0.0.1",
+            "port": 2129
+        },
+        {
+            "api": "report",
+            "host": "127.0.0.1",
+            "port": 2140
+        }
+    ],
+    "database": [
+        {
+            "name": "MongoDB",
+            "code": 0,
+            "key": "EtherBase",
+            "host": "127.0.0.1",
+            "port": 27017,
+            "table": [
+                {
+                    "name": "account",
+                    "code": 0
+                },
+                {
+                    "name": "application",
+                    "code": 1
+                },
+                {
+                    "name": "profile",
+                    "code": 2
+                },
+                {
+                    "name": "oneTimePassword",
+                    "code": 3
+                },
+                {
+                    "name": "service",
+                    "code": 4
+                },
+                {
+                    "name": "entity",
+                    "code": 5
+                },
+                {
+                    "name": "phoneCountry",
+                    "code": 6
+                },
+                {
+                    "name": "allIndiaPincode",
+                    "code": 7
+                },
+                {
+                    "name":"state",
+                    "code":8
+                },
+                {
+                    "name": "countries",
+                    "code": 9
+                }
+            ]
+            
+        },
+        {
+            "name": "MongoDB",
+            "code": 1,
+            "key": "EtherBase",
+            "host": "127.0.0.1",
+            "port": 27017,
+            "table": [
+                {
+                    "name": "serviceAccount",
+                    "code": 0
+                },
+                {
+                    "name": "forms",
+                    "code": 1
+                }
+            ]
+        },
+        {
+            "name": "MongoDB",
+            "code": 0,
+            "key": "TourismReport",
+            "host": "127.0.0.1",
+            "port": 27017,
+            "table": [
+                {
+                    "name": "accDomReport",
+                    "code": 0
+                },
+                {
+                    "name": "serviceTouristCount",
+                    "code": 1
+                },
+                {
+                    "name": "districtInfo",
+                    "code": 2
+                }
+            ]
+            
+        },
+        {
+            "name": "Cassandra",
+            "code": 2,
+            "key": "mms_service",
+            "host": "127.0.0.1",
+            "port": 9042,
+            "ttl": 7776000,
+            "username": "cassandra",
+            "password": "cassandra",
+            "table": [
+                {
+                    "name": "vehicle",
+                    "code": 0
+                }
+            ]
+        },
+        {
+            "name": "Redis",
+            "code": 3,
+            "key": "MmsService",
+            "dbId": 3,
+            "host": "127.0.0.1",
+            "port": 6379,
+            "table": []
+        },
+        {
+            "name": "Firebase",
+            "code": 4,
+            "key": "MmsService",
+            "dbId": 4,
+            "host": "127.0.0.1",
+            "port": 0,
+            "cred": "../com-xlayer-meg-gov.json",
+            "table": []
+        }
+    ],
+    "sms_gw": [
+        {
+            "name": "MSG91",
+            "code": 1,
+            "key": "190375A8pqgqS55cb1f0d8"
+        }
+    ],
+    "whatsapp_gw": [
+        {
+            "name": "account_sid",
+            "code": 1,
+            "key": "ACae31747fb9c6429d01170746c7b1dd7f"
+        },
+        {
+            "name": "auth_token",
+            "code": 2,
+            "key": "2d8e556d144b6bf505024a56daa16bd7"
+        }
+    ],
+    "maps": [
+        {
+            "name": "google",
+            "key": "AIzaSyCDjb0GkEDTnVUbGAkPBAk0iiso3OjzyTU"
+        }
+    ],
+    "payment":[
+                {
+                    "provider":"razorpay",
+                    "username":"rzp_live_ekftnlzPfn5xG1",
+                    "password":"UDn66dnt6PRd7Ofv0zN6Pu7P"
+                }
+    ]
+}

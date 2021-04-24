@@ -1,0 +1,246 @@
+| 2021:04:12 12:09:41,913 | I | root | ------
+| 2021:04:12 12:09:41,924 | I | root | lib/log_util.py +50 <module> All Logs written in ./log/run.log
+| 2021:04:12 12:09:43,268 | D | asyncio | Using selector: EpollSelector
+| 2021:04:12 12:09:43,299 | I | root | lib/conn_util.py +39 MongoMixin MONGO	User Database has been Initialized!
+| 2021:04:12 12:09:43,315 | I | root | lib/conn_util.py +58 MongoMixin MONGO	Service Database has been Initialized!
+| 2021:04:12 12:09:43,330 | I | root | lib/conn_util.py +78 MongoMixin MONGO	Report Database has been Initialized!
+| 2021:04:12 12:09:43,369 | I | root | lib/conn_util.py +107 FirebaseMixin Firebase	has been Initialization Failed! 'cred'
+| 2021:04:12 12:09:43,954 | E | STDERR | Traceback (most recent call last):
+| 2021:04:12 12:09:43,954 | E | STDERR |   File "./mtime_server_run.py", line 4, in <module>
+| 2021:04:12 12:09:43,954 | E | STDERR |     from common import *
+| 2021:04:12 12:09:43,954 | E | STDERR |   File "/home/soumik/work/mtime/server_v2/web/common.py", line 210, in <module>
+| 2021:04:12 12:09:43,954 | E | STDERR |     from .components.whatsapp_notification import MtimeWebWhatsappNotificationHandler
+| 2021:04:12 12:09:43,955 | E | STDERR |   File "/home/soumik/work/mtime/server_v2/web/components/whatsapp_notification.py", line 25, in <module>
+| 2021:04:12 12:09:43,955 | E | STDERR |     from twilio.rest import Client
+| 2021:04:12 12:09:43,955 | E | STDERR | ModuleNotFoundError: No module named 'twilio'
+| 2021:04:24 14:28:39,386 | I | root | ------
+| 2021:04:24 14:28:39,397 | I | root | lib/log_util.py +50 <module> All Logs written in ./log/run.log
+| 2021:04:24 14:28:40,715 | D | asyncio | Using selector: EpollSelector
+| 2021:04:24 14:28:40,746 | I | root | lib/conn_util.py +39 MongoMixin MONGO	User Database has been Initialized!
+| 2021:04:24 14:28:40,761 | I | root | lib/conn_util.py +58 MongoMixin MONGO	Service Database has been Initialized!
+| 2021:04:24 14:28:40,775 | I | root | lib/conn_util.py +78 MongoMixin MONGO	Report Database has been Initialized!
+| 2021:04:24 14:28:40,814 | I | root | lib/conn_util.py +107 FirebaseMixin Firebase	has been Initialization Failed! 'cred'
+| 2021:04:24 14:28:40,834 | E | STDERR | Traceback (most recent call last):
+| 2021:04:24 14:28:40,834 | E | STDERR |   File "./mtime_server_run.py", line 4, in <module>
+| 2021:04:24 14:28:40,835 | E | STDERR |     from common import *
+| 2021:04:24 14:28:40,835 | E | STDERR |   File "/home/soumik/work/app_builder/ether/api_core/server/web/common.py", line 21, in <module>
+| 2021:04:24 14:28:40,835 | E | STDERR |     from .tourist.tourqr_pass import PassQRHandler
+| 2021:04:24 14:28:40,835 | E | STDERR | ModuleNotFoundError: No module named 'web.tourist'
+| 2021:04:24 14:30:20,605 | I | root | ------
+| 2021:04:24 14:30:20,616 | I | root | lib/log_util.py +50 <module> All Logs written in ./log/run.log
+| 2021:04:24 14:30:21,865 | D | asyncio | Using selector: EpollSelector
+| 2021:04:24 14:30:21,895 | I | root | lib/conn_util.py +39 MongoMixin MONGO	User Database has been Initialized!
+| 2021:04:24 14:30:21,910 | I | root | lib/conn_util.py +58 MongoMixin MONGO	Service Database has been Initialized!
+| 2021:04:24 14:30:21,925 | I | root | lib/conn_util.py +78 MongoMixin MONGO	Report Database has been Initialized!
+| 2021:04:24 14:30:21,958 | I | root | lib/conn_util.py +107 FirebaseMixin Firebase	has been Initialization Failed! 'cred'
+| 2021:04:24 14:30:22,021 | E | STDERR | Traceback (most recent call last):
+| 2021:04:24 14:30:22,021 | E | STDERR |   File "./mtime_server_run.py", line 102, in <module>
+| 2021:04:24 14:30:22,021 | E | STDERR |     app = App()
+| 2021:04:24 14:30:22,021 | E | STDERR |   File "./mtime_server_run.py", line 85, in __init__
+| 2021:04:24 14:30:22,021 | E | STDERR |     (r'/v2/web/api/pass/qr', PassQRHandler),
+| 2021:04:24 14:30:22,021 | E | STDERR | NameError: name 'PassQRHandler' is not defined
+| 2021:04:24 14:30:33,946 | I | root | ------
+| 2021:04:24 14:30:33,957 | I | root | lib/log_util.py +50 <module> All Logs written in ./log/run.log
+| 2021:04:24 14:30:35,205 | D | asyncio | Using selector: EpollSelector
+| 2021:04:24 14:30:35,235 | I | root | lib/conn_util.py +39 MongoMixin MONGO	User Database has been Initialized!
+| 2021:04:24 14:30:35,250 | I | root | lib/conn_util.py +58 MongoMixin MONGO	Service Database has been Initialized!
+| 2021:04:24 14:30:35,264 | I | root | lib/conn_util.py +78 MongoMixin MONGO	Report Database has been Initialized!
+| 2021:04:24 14:30:35,296 | I | root | lib/conn_util.py +107 FirebaseMixin Firebase	has been Initialization Failed! 'cred'
+| 2021:04:24 14:30:35,336 | I | root | mtime_server_run.py +89 __init__ APP	Running Tornado Application Port - [ 2122 ]
+| 2021:04:24 14:31:26,317 | I | root | ------
+| 2021:04:24 14:31:26,328 | I | root | lib/log_util.py +50 <module> All Logs written in ./log/run.log
+| 2021:04:24 14:31:27,576 | D | asyncio | Using selector: EpollSelector
+| 2021:04:24 14:31:27,607 | I | root | lib/conn_util.py +39 MongoMixin MONGO	User Database has been Initialized!
+| 2021:04:24 14:31:27,622 | I | root | lib/conn_util.py +58 MongoMixin MONGO	Service Database has been Initialized!
+| 2021:04:24 14:31:27,636 | I | root | lib/conn_util.py +78 MongoMixin MONGO	Report Database has been Initialized!
+| 2021:04:24 14:31:27,669 | I | root | lib/conn_util.py +107 FirebaseMixin Firebase	has been Initialization Failed! 'cred'
+| 2021:04:24 14:31:27,695 | I | root | mtime_server_run.py +89 __init__ APP	Running Tornado Application Port - [ 2122 ]
+| 2021:04:24 14:32:31,745 | I | root | ------
+| 2021:04:24 14:32:31,756 | I | root | lib/log_util.py +50 <module> All Logs written in ./log/run.log
+| 2021:04:24 14:32:33,004 | D | asyncio | Using selector: EpollSelector
+| 2021:04:24 14:32:33,033 | I | root | lib/conn_util.py +39 MongoMixin MONGO	User Database has been Initialized!
+| 2021:04:24 14:32:33,048 | I | root | lib/conn_util.py +58 MongoMixin MONGO	Service Database has been Initialized!
+| 2021:04:24 14:32:33,062 | I | root | lib/conn_util.py +78 MongoMixin MONGO	Report Database has been Initialized!
+| 2021:04:24 14:32:33,094 | I | root | lib/conn_util.py +107 FirebaseMixin Firebase	has been Initialization Failed! 'cred'
+| 2021:04:24 14:32:33,119 | I | root | mtime_server_run.py +89 __init__ APP	Running Tornado Application Port - [ 3122 ]
+| 2021:04:24 14:45:45,126 | I | tornado.general | /home/soumik/work/app_builder/ether/api_core/server/web/common.py modified; restarting server
+| 2021:04:24 14:45:45,172 | I | root | ------
+| 2021:04:24 14:45:45,183 | I | root | lib/log_util.py +50 <module> All Logs written in ./log/run.log
+| 2021:04:24 14:45:46,446 | D | asyncio | Using selector: EpollSelector
+| 2021:04:24 14:45:46,475 | I | root | lib/conn_util.py +39 MongoMixin MONGO	User Database has been Initialized!
+| 2021:04:24 14:45:46,489 | I | root | lib/conn_util.py +58 MongoMixin MONGO	Service Database has been Initialized!
+| 2021:04:24 14:45:46,504 | I | root | lib/conn_util.py +78 MongoMixin MONGO	Report Database has been Initialized!
+| 2021:04:24 14:45:46,526 | I | root | lib/conn_util.py +107 FirebaseMixin Firebase	has been Initialization Failed! 'cred'
+| 2021:04:24 14:45:46,555 | E | STDERR | Traceback (most recent call last):
+| 2021:04:24 14:45:46,555 | E | STDERR |   File "./mtime_server_run.py", line 4, in <module>
+| 2021:04:24 14:45:46,556 | E | STDERR |     from common import *
+| 2021:04:24 14:45:46,556 | E | STDERR |   File "/home/soumik/work/app_builder/ether/api_core/server/web/common.py", line 23, in <module>
+| 2021:04:24 14:45:46,556 | E | STDERR |     from .components.service_vehicletype import MtimeWebServiceVehicleTypeHandler
+| 2021:04:24 14:45:46,556 | E | STDERR |   File "/home/soumik/work/app_builder/ether/api_core/server/web/components/service_vehicletype.py", line 28, in <module>
+| 2021:04:24 14:45:46,556 | E | STDERR |     class MtimeWebServiceVehicleTypeHandler(tornado.web.RequestHandler,
+| 2021:04:24 14:45:46,556 | E | STDERR |   File "/home/soumik/work/app_builder/ether/api_core/server/web/components/service_vehicletype.py", line 58, in MtimeWebServiceVehicleTypeHandler
+| 2021:04:24 14:45:46,556 | E | STDERR |     CONFIG['database'][1]['table'][4]['name']
+| 2021:04:24 14:45:46,556 | E | STDERR | IndexError: list index out of range
+| 2021:04:24 14:46:00,697 | I | root | ------
+| 2021:04:24 14:46:00,708 | I | root | lib/log_util.py +50 <module> All Logs written in ./log/run.log
+| 2021:04:24 14:46:01,963 | D | asyncio | Using selector: EpollSelector
+| 2021:04:24 14:46:01,994 | I | root | lib/conn_util.py +39 MongoMixin MONGO	User Database has been Initialized!
+| 2021:04:24 14:46:02,009 | I | root | lib/conn_util.py +58 MongoMixin MONGO	Service Database has been Initialized!
+| 2021:04:24 14:46:02,024 | I | root | lib/conn_util.py +78 MongoMixin MONGO	Report Database has been Initialized!
+| 2021:04:24 14:46:02,048 | I | root | lib/conn_util.py +107 FirebaseMixin Firebase	has been Initialization Failed! 'cred'
+| 2021:04:24 14:46:02,084 | E | STDERR | Traceback (most recent call last):
+| 2021:04:24 14:46:02,084 | E | STDERR |   File "./mtime_server_run.py", line 4, in <module>
+| 2021:04:24 14:46:02,085 | E | STDERR |     from common import *
+| 2021:04:24 14:46:02,085 | E | STDERR |   File "/home/soumik/work/app_builder/ether/api_core/server/web/common.py", line 23, in <module>
+| 2021:04:24 14:46:02,085 | E | STDERR |     from .components.service_vehicletype import MtimeWebServiceVehicleTypeHandler
+| 2021:04:24 14:46:02,085 | E | STDERR |   File "/home/soumik/work/app_builder/ether/api_core/server/web/components/service_vehicletype.py", line 28, in <module>
+| 2021:04:24 14:46:02,085 | E | STDERR |     class MtimeWebServiceVehicleTypeHandler(tornado.web.RequestHandler,
+| 2021:04:24 14:46:02,085 | E | STDERR |   File "/home/soumik/work/app_builder/ether/api_core/server/web/components/service_vehicletype.py", line 58, in MtimeWebServiceVehicleTypeHandler
+| 2021:04:24 14:46:02,085 | E | STDERR |     CONFIG['database'][1]['table'][4]['name']
+| 2021:04:24 14:46:02,085 | E | STDERR | IndexError: list index out of range
+| 2021:04:24 14:46:29,461 | I | root | ------
+| 2021:04:24 14:46:29,472 | I | root | lib/log_util.py +50 <module> All Logs written in ./log/run.log
+| 2021:04:24 14:46:30,728 | D | asyncio | Using selector: EpollSelector
+| 2021:04:24 14:46:30,758 | I | root | lib/conn_util.py +39 MongoMixin MONGO	User Database has been Initialized!
+| 2021:04:24 14:46:30,772 | I | root | lib/conn_util.py +58 MongoMixin MONGO	Service Database has been Initialized!
+| 2021:04:24 14:46:30,787 | I | root | lib/conn_util.py +78 MongoMixin MONGO	Report Database has been Initialized!
+| 2021:04:24 14:46:30,810 | I | root | lib/conn_util.py +107 FirebaseMixin Firebase	has been Initialization Failed! 'cred'
+| 2021:04:24 14:46:30,841 | E | STDERR | Traceback (most recent call last):
+| 2021:04:24 14:46:30,841 | E | STDERR |   File "./mtime_server_run.py", line 4, in <module>
+| 2021:04:24 14:46:30,841 | E | STDERR |     from common import *
+| 2021:04:24 14:46:30,841 | E | STDERR |   File "/home/soumik/work/app_builder/ether/api_core/server/web/common.py", line 23, in <module>
+| 2021:04:24 14:46:30,842 | E | STDERR |     from .resource.profile import MtimeProfileHandler
+| 2021:04:24 14:46:30,842 | E | STDERR |   File "/home/soumik/work/app_builder/ether/api_core/server/web/resource/profile.py", line 26, in <module>
+| 2021:04:24 14:46:30,842 | E | STDERR |     class MtimeProfileHandler(tornado.web.RequestHandler, MongoMixin):
+| 2021:04:24 14:46:30,842 | E | STDERR |   File "/home/soumik/work/app_builder/ether/api_core/server/web/resource/profile.py", line 59, in MtimeProfileHandler
+| 2021:04:24 14:46:30,842 | E | STDERR |     CONFIG['database'][1]['table'][2]['name']
+| 2021:04:24 14:46:30,842 | E | STDERR | IndexError: list index out of range
+| 2021:04:24 14:46:57,736 | I | root | ------
+| 2021:04:24 14:46:57,746 | I | root | lib/log_util.py +50 <module> All Logs written in ./log/run.log
+| 2021:04:24 14:46:59,003 | D | asyncio | Using selector: EpollSelector
+| 2021:04:24 14:46:59,033 | I | root | lib/conn_util.py +39 MongoMixin MONGO	User Database has been Initialized!
+| 2021:04:24 14:46:59,048 | I | root | lib/conn_util.py +58 MongoMixin MONGO	Service Database has been Initialized!
+| 2021:04:24 14:46:59,062 | I | root | lib/conn_util.py +78 MongoMixin MONGO	Report Database has been Initialized!
+| 2021:04:24 14:46:59,085 | I | root | lib/conn_util.py +107 FirebaseMixin Firebase	has been Initialization Failed! 'cred'
+| 2021:04:24 14:46:59,116 | E | STDERR | Traceback (most recent call last):
+| 2021:04:24 14:46:59,116 | E | STDERR |   File "./mtime_server_run.py", line 4, in <module>
+| 2021:04:24 14:46:59,116 | E | STDERR |     from common import *
+| 2021:04:24 14:46:59,116 | E | STDERR |   File "/home/soumik/work/app_builder/ether/api_core/server/web/common.py", line 23, in <module>
+| 2021:04:24 14:46:59,116 | E | STDERR |     from .resource.profile import MtimeProfileHandler
+| 2021:04:24 14:46:59,116 | E | STDERR |   File "/home/soumik/work/app_builder/ether/api_core/server/web/resource/profile.py", line 26, in <module>
+| 2021:04:24 14:46:59,117 | E | STDERR |     class MtimeProfileHandler(tornado.web.RequestHandler, MongoMixin):
+| 2021:04:24 14:46:59,117 | E | STDERR |   File "/home/soumik/work/app_builder/ether/api_core/server/web/resource/profile.py", line 55, in MtimeProfileHandler
+| 2021:04:24 14:46:59,117 | E | STDERR |     CONFIG['database'][1]['table'][17]['name']
+| 2021:04:24 14:46:59,117 | E | STDERR | IndexError: list index out of range
+| 2021:04:24 14:47:15,844 | I | root | ------
+| 2021:04:24 14:47:15,856 | I | root | lib/log_util.py +50 <module> All Logs written in ./log/run.log
+| 2021:04:24 14:47:17,118 | D | asyncio | Using selector: EpollSelector
+| 2021:04:24 14:47:17,148 | I | root | lib/conn_util.py +39 MongoMixin MONGO	User Database has been Initialized!
+| 2021:04:24 14:47:17,163 | I | root | lib/conn_util.py +58 MongoMixin MONGO	Service Database has been Initialized!
+| 2021:04:24 14:47:17,178 | I | root | lib/conn_util.py +78 MongoMixin MONGO	Report Database has been Initialized!
+| 2021:04:24 14:47:17,201 | I | root | lib/conn_util.py +107 FirebaseMixin Firebase	has been Initialization Failed! 'cred'
+| 2021:04:24 14:47:17,222 | I | root | mtime_server_run.py +89 __init__ APP	Running Tornado Application Port - [ 3122 ]
+| 2021:04:24 14:49:28,723 | I | tornado.general | ./mtime_server_run.py modified; restarting server
+| 2021:04:24 14:49:28,770 | I | root | ------
+| 2021:04:24 14:49:28,781 | I | root | lib/log_util.py +50 <module> All Logs written in ./log/run.log
+| 2021:04:24 14:49:29,858 | I | root | ------
+| 2021:04:24 14:49:29,869 | I | root | lib/log_util.py +50 <module> All Logs written in ./log/run.log
+| 2021:04:24 14:49:31,757 | D | asyncio | Using selector: EpollSelector
+| 2021:04:24 14:49:31,811 | I | root | lib/conn_util.py +39 MongoMixin MONGO	User Database has been Initialized!
+| 2021:04:24 14:49:31,837 | I | root | lib/conn_util.py +58 MongoMixin MONGO	Service Database has been Initialized!
+| 2021:04:24 14:49:31,863 | I | root | lib/conn_util.py +78 MongoMixin MONGO	Report Database has been Initialized!
+| 2021:04:24 14:49:31,898 | I | root | lib/conn_util.py +107 FirebaseMixin Firebase	has been Initialization Failed! 'cred'
+| 2021:04:24 14:49:31,926 | I | root | mtime_server_run.py +90 __init__ APP	Running Tornado Application Port - [ 3122 ]
+| 2021:04:24 14:49:43,444 | I | root | forms/forms.py +66 get Hello	
+| 2021:04:24 14:49:43,444 | D | root | forms/forms.py +84 get RSP	{'code': 4000, 'status': False, 'message': ''}
+| 2021:04:24 14:49:43,445 | I | tornado.access | 200 GET /web/api/forms (127.0.0.1) 21.04ms
+| 2021:04:24 14:50:33,218 | W | tornado.access | 404 GET /forms?id=12&name=wendu (127.0.0.1) 0.33ms
+| 2021:04:24 14:51:02,010 | I | root | forms/forms.py +66 get Hello	
+| 2021:04:24 14:51:02,010 | D | root | forms/forms.py +84 get RSP	{'code': 4000, 'status': False, 'message': ''}
+| 2021:04:24 14:51:02,010 | I | tornado.access | 200 GET /web/api/forms?id=12&name=wendu (127.0.0.1) 1.17ms
+| 2021:04:24 14:51:12,426 | I | tornado.general | ./mtime_server_run.py modified; restarting server
+| 2021:04:24 14:51:12,476 | I | root | ------
+| 2021:04:24 14:51:12,487 | I | root | lib/log_util.py +50 <module> All Logs written in ./log/run.log
+| 2021:04:24 14:51:13,761 | D | asyncio | Using selector: EpollSelector
+| 2021:04:24 14:51:13,790 | I | root | lib/conn_util.py +39 MongoMixin MONGO	User Database has been Initialized!
+| 2021:04:24 14:51:13,805 | I | root | lib/conn_util.py +58 MongoMixin MONGO	Service Database has been Initialized!
+| 2021:04:24 14:51:13,819 | I | root | lib/conn_util.py +78 MongoMixin MONGO	Report Database has been Initialized!
+| 2021:04:24 14:51:13,844 | I | root | lib/conn_util.py +107 FirebaseMixin Firebase	has been Initialization Failed! 'cred'
+| 2021:04:24 14:51:13,856 | I | root | mtime_server_run.py +90 __init__ APP	Running Tornado Application Port - [ 3122 ]
+| 2021:04:24 14:53:09,364 | I | tornado.general | /home/soumik/work/app_builder/ether/api_core/server/web/forms/forms.py modified; restarting server
+| 2021:04:24 14:53:09,442 | I | root | ------
+| 2021:04:24 14:53:09,453 | I | root | lib/log_util.py +50 <module> All Logs written in ./log/run.log
+| 2021:04:24 14:53:10,711 | D | asyncio | Using selector: EpollSelector
+| 2021:04:24 14:53:10,740 | I | root | lib/conn_util.py +39 MongoMixin MONGO	User Database has been Initialized!
+| 2021:04:24 14:53:10,755 | I | root | lib/conn_util.py +58 MongoMixin MONGO	Service Database has been Initialized!
+| 2021:04:24 14:53:10,769 | I | root | lib/conn_util.py +78 MongoMixin MONGO	Report Database has been Initialized!
+| 2021:04:24 14:53:10,792 | I | root | lib/conn_util.py +107 FirebaseMixin Firebase	has been Initialization Failed! 'cred'
+| 2021:04:24 14:53:10,805 | I | root | mtime_server_run.py +90 __init__ APP	Running Tornado Application Port - [ 3122 ]
+| 2021:04:24 14:53:47,313 | I | tornado.general | /home/soumik/work/app_builder/ether/api_core/server/web/lib/build_config.py modified; restarting server
+| 2021:04:24 14:53:47,390 | I | root | ------
+| 2021:04:24 14:53:47,401 | I | root | lib/log_util.py +50 <module> All Logs written in ./log/run.log
+| 2021:04:24 14:53:48,650 | D | asyncio | Using selector: EpollSelector
+| 2021:04:24 14:53:48,679 | I | root | lib/conn_util.py +39 MongoMixin MONGO	User Database has been Initialized!
+| 2021:04:24 14:53:48,693 | I | root | lib/conn_util.py +58 MongoMixin MONGO	Service Database has been Initialized!
+| 2021:04:24 14:53:48,708 | I | root | lib/conn_util.py +78 MongoMixin MONGO	Report Database has been Initialized!
+| 2021:04:24 14:53:48,739 | I | root | lib/conn_util.py +107 FirebaseMixin Firebase	has been Initialization Failed! 'cred'
+| 2021:04:24 14:53:48,742 | I | root | mtime_server_run.py +90 __init__ APP	Running Tornado Application Port - [ 3122 ]
+| 2021:04:24 14:53:50,305 | I | root | ------
+| 2021:04:24 14:53:50,316 | I | root | lib/log_util.py +50 <module> All Logs written in ./log/run.log
+| 2021:04:24 14:53:51,567 | D | asyncio | Using selector: EpollSelector
+| 2021:04:24 14:53:51,596 | I | root | lib/conn_util.py +39 MongoMixin MONGO	User Database has been Initialized!
+| 2021:04:24 14:53:51,611 | I | root | lib/conn_util.py +58 MongoMixin MONGO	Service Database has been Initialized!
+| 2021:04:24 14:53:51,626 | I | root | lib/conn_util.py +78 MongoMixin MONGO	Report Database has been Initialized!
+| 2021:04:24 14:53:51,657 | I | root | lib/conn_util.py +107 FirebaseMixin Firebase	has been Initialization Failed! 'cred'
+| 2021:04:24 14:53:51,669 | I | root | mtime_server_run.py +90 __init__ APP	Running Tornado Application Port - [ 3122 ]
+| 2021:04:24 14:56:05,173 | I | tornado.general | /home/soumik/work/app_builder/ether/api_core/server/web/forms/forms.py modified; restarting server
+| 2021:04:24 14:56:05,219 | I | root | ------
+| 2021:04:24 14:56:05,229 | I | root | lib/log_util.py +50 <module> All Logs written in ./log/run.log
+| 2021:04:24 14:56:06,484 | D | asyncio | Using selector: EpollSelector
+| 2021:04:24 14:56:06,512 | I | root | lib/conn_util.py +39 MongoMixin MONGO	User Database has been Initialized!
+| 2021:04:24 14:56:06,527 | I | root | lib/conn_util.py +58 MongoMixin MONGO	Service Database has been Initialized!
+| 2021:04:24 14:56:06,541 | I | root | lib/conn_util.py +78 MongoMixin MONGO	Report Database has been Initialized!
+| 2021:04:24 14:56:06,573 | I | root | lib/conn_util.py +107 FirebaseMixin Firebase	has been Initialization Failed! 'cred'
+| 2021:04:24 14:56:06,578 | I | root | mtime_server_run.py +90 __init__ APP	Running Tornado Application Port - [ 3122 ]
+| 2021:04:24 14:56:16,575 | I | root | forms/forms.py +76 get Hello	
+| 2021:04:24 14:56:16,576 | D | root | forms/forms.py +94 get RSP	{'code': 3100, 'status': False, 'message': 'No data found.'}
+| 2021:04:24 14:56:16,576 | I | tornado.access | 200 GET /web/api/forms?id=12&name=wendu (127.0.0.1) 7.49ms
+| 2021:04:24 14:57:14,585 | I | tornado.general | /home/soumik/work/app_builder/ether/api_core/server/web/forms/forms.py modified; restarting server
+| 2021:04:24 14:57:14,665 | I | root | ------
+| 2021:04:24 14:57:14,676 | I | root | lib/log_util.py +50 <module> All Logs written in ./log/run.log
+| 2021:04:24 14:57:15,928 | D | asyncio | Using selector: EpollSelector
+| 2021:04:24 14:57:15,956 | I | root | lib/conn_util.py +39 MongoMixin MONGO	User Database has been Initialized!
+| 2021:04:24 14:57:15,973 | I | root | lib/conn_util.py +58 MongoMixin MONGO	Service Database has been Initialized!
+| 2021:04:24 14:57:15,988 | I | root | lib/conn_util.py +78 MongoMixin MONGO	Report Database has been Initialized!
+| 2021:04:24 14:57:16,021 | I | root | lib/conn_util.py +107 FirebaseMixin Firebase	has been Initialization Failed! 'cred'
+| 2021:04:24 14:57:16,025 | I | root | mtime_server_run.py +90 __init__ APP	Running Tornado Application Port - [ 3122 ]
+| 2021:04:24 15:00:57,313 | I | root | forms/forms.py +76 get Hello	
+| 2021:04:24 15:00:57,313 | D | root | forms/forms.py +94 get RSP	{'code': 3100, 'status': False, 'message': 'No data found.'}
+| 2021:04:24 15:00:57,314 | I | tornado.access | 200 GET /web/api/forms (127.0.0.1) 11.76ms
+| 2021:04:24 15:00:58,761 | I | root | forms/forms.py +76 get Hello	
+| 2021:04:24 15:00:58,762 | D | root | forms/forms.py +94 get RSP	{'code': 3100, 'status': False, 'message': 'No data found.'}
+| 2021:04:24 15:00:58,762 | I | tornado.access | 200 GET /web/api/forms (127.0.0.1) 5.48ms
+| 2021:04:24 15:00:59,560 | I | root | forms/forms.py +76 get Hello	
+| 2021:04:24 15:00:59,561 | D | root | forms/forms.py +94 get RSP	{'code': 3100, 'status': False, 'message': 'No data found.'}
+| 2021:04:24 15:00:59,562 | I | tornado.access | 200 GET /web/api/forms (127.0.0.1) 5.40ms
+| 2021:04:24 15:05:07,308 | I | root | forms/forms.py +76 get Hello	
+| 2021:04:24 15:05:07,309 | D | root | forms/forms.py +94 get RSP	{'code': 3100, 'status': False, 'message': 'No data found.'}
+| 2021:04:24 15:05:07,309 | I | tornado.access | 200 GET /web/api/forms (127.0.0.1) 1.65ms
+| 2021:04:24 15:05:43,061 | I | root | forms/forms.py +76 get Hello	
+| 2021:04:24 15:05:43,062 | D | root | forms/forms.py +94 get RSP	{'code': 3100, 'status': False, 'message': 'No data found.'}
+| 2021:04:24 15:05:43,062 | I | tornado.access | 200 GET /web/api/forms (127.0.0.1) 1.90ms
+| 2021:04:24 15:07:05,252 | I | root | forms/forms.py +76 get Hello	
+| 2021:04:24 15:07:05,252 | D | root | forms/forms.py +94 get RSP	{'code': 3100, 'status': False, 'message': 'No data found.'}
+| 2021:04:24 15:07:05,253 | I | tornado.access | 200 GET /web/api/forms (127.0.0.1) 1.95ms
+| 2021:04:24 15:07:18,591 | I | root | forms/forms.py +76 get Hello	
+| 2021:04:24 15:07:18,592 | D | root | forms/forms.py +94 get RSP	{'code': 3100, 'status': False, 'message': 'No data found.'}
+| 2021:04:24 15:07:18,592 | I | tornado.access | 200 GET /web/api/forms (127.0.0.1) 2.41ms
+| 2021:04:24 15:18:32,027 | I | tornado.general | /home/soumik/work/app_builder/ether/api_core/server/web/forms/forms.py modified; restarting server
+| 2021:04:24 15:18:32,073 | I | root | ------
+| 2021:04:24 15:18:32,085 | I | root | lib/log_util.py +50 <module> All Logs written in ./log/run.log
+| 2021:04:24 15:18:33,368 | D | asyncio | Using selector: EpollSelector
+| 2021:04:24 15:18:33,398 | I | root | lib/conn_util.py +39 MongoMixin MONGO	User Database has been Initialized!
+| 2021:04:24 15:18:33,413 | I | root | lib/conn_util.py +58 MongoMixin MONGO	Service Database has been Initialized!
+| 2021:04:24 15:18:33,429 | I | root | lib/conn_util.py +78 MongoMixin MONGO	Report Database has been Initialized!
+| 2021:04:24 15:18:33,459 | I | root | lib/conn_util.py +107 FirebaseMixin Firebase	has been Initialization Failed! 'cred'
+| 2021:04:24 15:18:33,463 | I | root | mtime_server_run.py +90 __init__ APP	Running Tornado Application Port - [ 3122 ]

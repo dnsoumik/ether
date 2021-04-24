@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "com-xlayer-meg-gov",
+  "private_key_id": "e72d4d277cd946c27b27682aacdfc848f7880ab2",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDI+Tsa0NZYKLWF\nBqruFMFuCO9yKxPJtThAGcqFHzBbuZY1wswKxIw1kTmXC11m4DfJm1AQsphTYNz5\nv76aeBVY43o2jp1zEQ7diVfJCvAlaN/ZPlvnMqMCxMoPdN+aBuwbwWMsHAW3cs3t\n+J9aLQVQkisMEEXAWxE4fG3Ow9KVMQEvmyg5k8j1yqofOF1nSt3/Q+6yN8JCW2kK\nsIgqu45+SzXFshiHzM8EEEsv6MrS+AxqdYjLxiYDIeOpYN2CMb0WBS+cZl3E1qQb\n19WmJ9NYk7YlE5+5FeaaqcLIPsNll6DONKX6kq9Z/12dF7hgRAS0dzhbIYla5Fy4\nmQ/pGsarAgMBAAECggEABqB5O3QhbTzCZ4WFw1351tgClUAoYeFQ3oQ7MlKJ9KxU\n8KbgtYYvnWCRhpKAXPENxd8SL8rDzRQHlVCmR0+oXIr7r6raND4ewF1UALQUoRcp\nMm+k9iWsTF4Sz5mp+dk6ldu1mnG+GoN1mOA22PFdGIAJXVd4BVS7Z6JquIOqgPLS\ntnKUxPposel1qBOI5vXX2czupSzu9ganL7YO4FWPwKkWn2/7jWyJdkg9aouHx9Hp\nbz4hY/mNmWgEbWXNhbnCSvIMwXZrCd+IPbe48+yM0y6NykR4ZoPG505hyjhDd7OC\nuMhJnGq5PgZua1tRAc9yuQwMCzaWtwGt8t/VSmUzEQKBgQD1wT6p6ixqwNrI6HrY\nQup+NsGxzkLXZ78XXBCMavfNL1q2RBQ5FdKVa5akb+odvxNOpylEUXc+HEvu2NIX\n9ctMET6jcn6FqI/5BZ0t7XNFahTjFGnmg1zx37T0o841CFts6XvldvMtsnjkwall\nYBLykM+6c4cUkIb5I1PcinmgyQKBgQDRWhG3lJDAI2LXMwuXFwUt88YQkoDs32UW\n/9yvh8xGMsORGFlm62RhxrYag7QBYeEJ6q3szVuhxqi5D1Dxb5SFjEHnUez/SZR8\nQ5ri/sa1h74WX6W8LFfEJnzKR7xKm25hlfE2a6ddjYB/CtkEU2rvueS6Dax4oRe8\n1s57A1q50wKBgBapEfki8aOKUuIxpZopWWv36pZVmY45L8Kcp537Awx1cFzcHC1D\nWN6URBi3hRPnGYWoHkMBbAhbHZlRftXcwTkrYeY6WXZDm7rvjJW+jmF5LaHesQEj\nXb+jzBC+xfXX5m49fUIkXLn6+fDF9rO1Tyn0tmLP4kXAKeHxIvtz/VEZAoGAKb6Y\nAc8x/d4Qe3DGQt5oPf155RwRcSoqcieazbV6WhUNQgVk7kzJu2VwMmFIp23o/Z06\nCRn5x4xhYGVZcosZRnftPD7tzwnQ/eZNIC5FWTU0BioUVi1RYt95yqv7M7VCkVrg\nukVFHjZ1BOAY3e/0RtD+dsr7NSKKJTGAAq9si9kCgYAP8zCN8mbCqH34/E8P4p+D\n9dJ22gz5jEWy3OLV2OcjRMNEHy0C8emTxl33puSR7NICGT0uR2LpEACY7+ALNM6L\nVtLrUJC7xCNod/A6NAXAk9qzKXBZnm2tWxKWA/DGCdxutmo2H7x91rPV/2YMsqe9\nwUvHsSEQgvDVNvkCr9W6Jg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-x8pdi@com-xlayer-meg-gov.iam.gserviceaccount.com",
+  "client_id": "109888732535098870622",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-x8pdi%40com-xlayer-meg-gov.iam.gserviceaccount.com"
+}
