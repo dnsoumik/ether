@@ -1,110 +1,248 @@
+import 'package:ether/util/log_util.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 // import 'package:fluttertoast/fluttertoast.dart';
 
 class Toaster {
-  static w({@required String message, bool shortLen=false}) {
-    Toast toastLen = Toast.LENGTH_LONG;
+
+  static w(BuildContext _context, {@required String message, bool shortLen=false}) {
+    int toastLen = 2;
     if (shortLen) {
-      toastLen = Toast.LENGTH_SHORT;
+      toastLen = 1;
     }
-    Fluttertoast.showToast(
-      msg: message,
-      toastLength: toastLen,
+
+    if (_context == null) {
+      return;
+    }
+
+    FlutterToast flutterToast = FlutterToast(_context);
+    Widget toast = Container(
+      padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(25.0),
+        color: Colors.blueGrey,
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          // Icon(Icons.check),
+          SizedBox(
+            width: 12.0,
+          ),
+          Text(
+            message,
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
+    );
+    flutterToast.showToast(
+      child: toast,
       gravity: ToastGravity.BOTTOM,
-      timeInSecForIosWeb: 1,
-      backgroundColor: Colors.blueGrey,
-        textColor: Colors.white,
-      fontSize: 16.0,
+      toastDuration: Duration(seconds: toastLen),
     );
   }
 
-  static s({@required String message, bool shortLen=false}) {
-
+  static s(BuildContext _context, {@required String message, bool shortLen=false}) {
+    int toastLen = 2;
     if (shortLen) {
-      Fluttertoast.showToast(
-        msg: message,
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.BOTTOM,
-        timeInSecForIosWeb: 1,
-        backgroundColor: Colors.green[500],
-        textColor: Colors.white,
-        fontSize: 16.0,
-      );
-    } else {
-      Fluttertoast.showToast(
-        msg: message,
-        toastLength: Toast.LENGTH_LONG,
-        gravity: ToastGravity.BOTTOM,
-        timeInSecForIosWeb: 1,
-        backgroundColor: Colors.green[500],
-        textColor: Colors.white,
-        fontSize: 16.0,
-      );
+      toastLen = 1;
     }
-  }
 
-  static e({@required String message, bool shortLen=false}) {
-    Toast toastLen = Toast.LENGTH_LONG;
-    if (shortLen) {
-      toastLen = Toast.LENGTH_SHORT;
+    if (_context == null) {
+      return;
     }
-    Fluttertoast.showToast(
-      msg: message,
-      toastLength: toastLen,
+
+    FlutterToast flutterToast = FlutterToast(_context);
+    Widget toast = Container(
+      padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(25.0),
+        color: Colors.green,
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          // Icon(Icons.check),
+          SizedBox(
+            width: 12.0,
+          ),
+          Text(
+            message,
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
+    );
+    flutterToast.showToast(
+      child: toast,
       gravity: ToastGravity.BOTTOM,
-      timeInSecForIosWeb: 1,
-      backgroundColor: Colors.redAccent,
-      textColor: Colors.white,
-      fontSize: 16.0,
+      toastDuration: Duration(seconds: toastLen),
     );
   }
 
-  static i({@required String message, bool shortLen=false}) {
-    Toast toastLen = Toast.LENGTH_LONG;
+  static e(BuildContext _context, {@required String message, bool shortLen=false}) {
+    int toastLen = 2;
     if (shortLen) {
-      toastLen = Toast.LENGTH_SHORT;
+      toastLen = 1;
     }
-    Fluttertoast.showToast(
-      msg: message,
-      toastLength: toastLen,
+
+    if (_context == null) {
+      return;
+    }
+
+    FlutterToast flutterToast = FlutterToast(_context);
+    Widget toast = Container(
+      padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(25.0),
+        color: Colors.redAccent,
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          // Icon(Icons.check),
+          SizedBox(
+            width: 12.0,
+          ),
+          Text(
+            message,
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
+    );
+    flutterToast.showToast(
+      child: toast,
       gravity: ToastGravity.BOTTOM,
-      timeInSecForIosWeb: 1,
-      backgroundColor: Colors.blueAccent,
-      textColor: Colors.white,
-      fontSize: 16.0,
+      toastDuration: Duration(seconds: toastLen),
     );
   }
 
-  static d({@required String message, bool shortLen=false}) {
-    Toast toastLen = Toast.LENGTH_LONG;
+  static i(BuildContext _context, {@required String message, bool shortLen=false}) {
+    int toastLen = 2;
     if (shortLen) {
-      toastLen = Toast.LENGTH_SHORT;
+      toastLen = 1;
     }
-    Fluttertoast.showToast(
-      msg: message,
-      toastLength: toastLen,
+
+    if (_context == null) {
+      return;
+    }
+
+    FlutterToast flutterToast = FlutterToast(_context);
+    Widget toast = Container(
+      padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(25.0),
+        color: Colors.blueAccent,
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          // Icon(Icons.check),
+          SizedBox(
+            width: 12.0,
+          ),
+          Text(
+            message,
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
+    );
+    flutterToast.showToast(
+      child: toast,
       gravity: ToastGravity.BOTTOM,
-      timeInSecForIosWeb: 1,
-      backgroundColor: Colors.white,
-      textColor: Colors.black,
-      fontSize: 16.0,
+      toastDuration: Duration(seconds: toastLen),
     );
   }
 
-  static r({@required String message, bool shortLen=false}) {
-    Toast toastLen = Toast.LENGTH_LONG;
+  static d(BuildContext _context, {@required String message, bool shortLen=false}) {
+    int toastLen = 2;
     if (shortLen) {
-      toastLen = Toast.LENGTH_SHORT;
+      toastLen = 1;
     }
-    Fluttertoast.showToast(
-      msg: message,
-      toastLength: toastLen,
+
+    if (_context == null) {
+      return;
+    }
+
+    FlutterToast flutterToast = FlutterToast(_context);
+    Widget toast = Container(
+      padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(25.0),
+        color: Colors.white,
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          // Icon(Icons.check),
+          SizedBox(
+            width: 12.0,
+          ),
+          Text(
+            message,
+            style: TextStyle(
+              color: Colors.black,
+            ),
+          ),
+        ],
+      ),
+    );
+    flutterToast.showToast(
+      child: toast,
       gravity: ToastGravity.BOTTOM,
-      timeInSecForIosWeb: 1,
-      backgroundColor: Colors.black,
-      textColor: Colors.white,
-      fontSize: 16.0,
+      toastDuration: Duration(seconds: toastLen),
     );
   }
+
+  static r(BuildContext _context, {@required String message, bool shortLen=false}) {
+    int toastLen = 2;
+    if (shortLen) {
+      toastLen = 1;
+    }
+
+    if (_context == null) {
+      return;
+    }
+
+    FlutterToast flutterToast = FlutterToast(_context);
+    Widget toast = Container(
+      padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(25.0),
+        color: Colors.black,
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          // Icon(Icons.check),
+          SizedBox(
+            width: 12.0,
+          ),
+          Text(
+            message,
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
+    );
+    flutterToast.showToast(
+      child: toast,
+      gravity: ToastGravity.BOTTOM,
+      toastDuration: Duration(seconds: toastLen),
+    );
+  }
+
 }

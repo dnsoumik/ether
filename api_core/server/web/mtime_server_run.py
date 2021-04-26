@@ -83,6 +83,7 @@ class App(tornado.web.Application):
                 (r'/web/api/sign/in', SignInHandler),
                 (r'/web/api/sign/up', SignUpV2Handler),
                 (r'/web/api/forms', FormsHandler),
+                (r'/web/api/forms_data', FormsDataHandler),
             ],
             **settings,
             default_handler_class=IndexHandler

@@ -1,11 +1,10 @@
-
 import 'dart:developer';
 
+import 'package:ether/util/toast_util.dart';
 import 'package:flutter/material.dart';
 import 'package:hovering/hovering.dart';
 
 class VesselEditor extends StatefulWidget {
-
   Map data;
   VesselEditor({this.data});
 
@@ -18,22 +17,25 @@ class _VesselEditorState extends State<VesselEditor> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        (widget.data['eSelect'] ==  true)? buildElementVision(Colors.deepOrangeAccent): Container(),
-        HoverWidget(
-          child: Container(
-            alignment: Alignment.center,
-            child: buildVessel(widget.data),
+        (widget.data['eSelect'] == true)
+            ? buildElementVision(Colors.deepOrangeAccent)
+            : Container(),
+        IgnorePointer(
+          ignoring: (widget.data['eSelect'] == true),
+          child: HoverWidget(
+            child: Container(
+              alignment: Alignment.center,
+              child: IgnorePointer(ignoring: true, child: buildVessel(widget.data)),
+            ),
+            hoverChild: Stack(
+              alignment: Alignment.topCenter,
+              children: [
+                buildElementVision(Colors.blue[800]),
+                IgnorePointer(ignoring: true, child: buildVessel(widget.data)),
+              ],
+            ),
+            onHover: (event) {},
           ),
-          hoverChild: Stack(
-            alignment: Alignment.topLeft,
-            children: [
-              buildElementVision(Colors.blue[800]),
-              buildVessel(widget.data),
-            ],
-          ),
-          onHover: (event) {
-
-          },
         ),
       ],
     );
@@ -42,27 +44,70 @@ class _VesselEditorState extends State<VesselEditor> {
   Widget buildElementVision(Color backColor) {
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(
-            color: backColor,
-            width: 2
-        ),
+        border: Border.all(color: backColor, width: 2),
       ),
       height: 70,
       width: MediaQuery.of(context).size.width,
-      // color: Colors.blue[900].withAlpha(150),
       alignment: Alignment.topLeft,
-      child: Container(
-        color: backColor,
-        padding: EdgeInsets.only(
-          left: 10,
-          right: 20,
-        ),
-        child: Text(
-          widget.data['eId'],
-          style: TextStyle(
-            color: Colors.white,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            color: backColor,
+            padding: EdgeInsets.only(
+              left: 10,
+              right: 20,
+            ),
+            child: Text(
+              widget.data['eId'],
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
           ),
-        ),
+          Visibility(
+            visible: (backColor == Colors.deepOrangeAccent),
+            child: Container(
+              color: backColor,
+              padding: EdgeInsets.only(
+                left: 5,
+                right: 5,
+              ),
+              child: Row(
+                children: [
+                  IconButton(
+                    icon: Icon(
+                      Icons.arrow_upward,
+                      color: Colors.white,
+                    ),
+                    tooltip: 'Move up',
+                    onPressed: () {},
+                  ),
+                  IconButton(
+                    icon: Icon(
+                      Icons.arrow_downward,
+                      color: Colors.white,
+                    ),
+                    tooltip: 'Move down',
+                    onPressed: () {},
+                  ),
+                  IconButton(
+                    icon: Icon(
+                      Icons.clear,
+                      color: Colors.white,
+                    ),
+                    tooltip: 'Delete element',
+                    onPressed: () {
+                      Toaster.w(context, message: 'Element has been deleted');
+                    },
+                    splashColor: Colors.black,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -82,9 +127,8 @@ class _VesselEditorState extends State<VesselEditor> {
     } else if (data['eId'] == 'text') {
       vessel = Container(
         width: MediaQuery.of(context).size.width,
-        child: Text(
-            data['label']
-        ),
+        alignment: Alignment.center,
+        child: Text(data['label']),
       );
     } else if (data['eId'] == 'button') {
       vessel = Container(
@@ -93,8 +137,7 @@ class _VesselEditorState extends State<VesselEditor> {
           child: Text(
             data['label'],
           ),
-          onPressed: () {
-          },
+          onPressed: () {},
         ),
       );
     } else if (data['eId'] == 'checkbox') {
@@ -104,9 +147,7 @@ class _VesselEditorState extends State<VesselEditor> {
           children: [
             Checkbox(
               value: true,
-              onChanged: (a) {
-
-              },
+              onChanged: (a) {},
             ),
             Text(data['label'])
           ],
@@ -120,9 +161,9 @@ class _VesselEditorState extends State<VesselEditor> {
         ),
         items: ['1', '2', '3', '4', '5']
             .map((label) => DropdownMenuItem(
-          child: Text(label.toString()),
-          value: label,
-        ))
+                  child: Text(label.toString()),
+                  value: label,
+                ))
             .toList(),
         hint: Text(data['label']),
         onChanged: (value) {
@@ -144,5 +185,4 @@ class _VesselEditorState extends State<VesselEditor> {
 
     return vessel;
   }
-
 }

@@ -32,7 +32,7 @@ dependencies:
   uuid: ^3.0.1
   flutter_svg: ^0.22.0
   dio: ^4.0.0
-  fluttertoast:
+  fluttertoast: ^6.0.0
 
 dev_dependencies:
   flutter_test:

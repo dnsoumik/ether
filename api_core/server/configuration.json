@@ -101,13 +101,17 @@
                 {
                     "name": "forms",
                     "code": 1
+                },
+                {
+                    "name": "formsData",
+                    "code": 2
                 }
             ]
         },
         {
             "name": "MongoDB",
             "code": 0,
-            "key": "TourismReport",
+            "key": "EtherReport",
             "host": "127.0.0.1",
             "port": 27017,
             "table": [

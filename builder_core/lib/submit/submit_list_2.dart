@@ -2,18 +2,19 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:ether/handler/static_memory.dart';
+import 'package:ether/submit/form_data_view.dart';
 import 'package:ether/submit/submit_form.dart';
 import 'package:ether/util/log_util.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class EtherFormsList extends StatefulWidget {
+class EtherFormsList_2 extends StatefulWidget {
   @override
   _EtherFormsListState createState() => _EtherFormsListState();
 }
 
-class _EtherFormsListState extends State<EtherFormsList> {
+class _EtherFormsListState extends State<EtherFormsList_2> {
   Dio dio;
   BuildContext _context;
 
@@ -35,7 +36,7 @@ class _EtherFormsListState extends State<EtherFormsList> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Forms List'),
+        title: Text('Select your form'),
         actions: [
           IconButton(
             icon: Icon(Icons.refresh),
@@ -105,8 +106,9 @@ class _EtherFormsListState extends State<EtherFormsList> {
         Card(
           child: InkWell(
             onTap: () {
+              Log.i(forms[i]['_id']);
               Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => FormSubmit(forms[i]))
+                MaterialPageRoute(builder: (context) => FormDataViewer(forms[i]))
               );
             },
             child: Container(
@@ -122,10 +124,10 @@ class _EtherFormsListState extends State<EtherFormsList> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                      'No.' + (i+1).toString(),
+                    'No.' + (i+1).toString(),
                     style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold
                     ),
                     textAlign: TextAlign.center,
                   ),

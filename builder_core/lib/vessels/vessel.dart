@@ -1,10 +1,12 @@
 
 
+import 'package:ether/util/log_util.dart';
 import 'package:flutter/material.dart';
 
 class Vessel extends StatefulWidget {
   Map data;
-  Vessel({this.data});
+  var xController;
+  Vessel({this.data, this.xController});
 
   @override
   _VesselState createState() => _VesselState();
@@ -23,11 +25,20 @@ class _VesselState extends State<Vessel> {
     Widget vessel = Text('N/A');
 
     if (data['eId'] == 'input') {
+      var x = TextEditingController();
+      widget.xController = '';
       vessel = Container(
         child: TextField(
           decoration: InputDecoration(
               labelText: data['label']
           ),
+          controller: x,
+          onChanged: (value) {
+            widget.xController = value;
+          },
+          onEditingComplete: () {
+            widget.xController = x.text;
+          },
         ),
       );
     } else if (data['eId'] == 'text') {
@@ -48,12 +59,13 @@ class _VesselState extends State<Vessel> {
         ),
       );
     } else if (data['eId'] == 'checkbox') {
+      widget.xController = false;
       vessel = Container(
         width: MediaQuery.of(context).size.width,
         child: Row(
           children: [
             Checkbox(
-              value: true,
+              value: widget.xController,
               onChanged: (a) {
 
               },
@@ -63,8 +75,9 @@ class _VesselState extends State<Vessel> {
         ),
       );
     } else if (data['eId'] == 'dropdown') {
+      widget.xController = '1';
       vessel = DropdownButtonFormField<String>(
-        value: '1',
+        value: widget.xController,
         decoration: InputDecoration(
           labelText: data['label'],
         ),

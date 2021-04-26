@@ -23,5 +23,6 @@ from .check.check_update import CheckUpdateHandler
 from .resource.profile import MtimeProfileHandler
 
 from .forms.forms import FormsHandler
+from .forms.forms_data import FormsDataHandler
 
 from .lib.lib import *

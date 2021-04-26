@@ -1,5 +1,6 @@
 import 'package:ether/create/create_form.dart';
 import 'package:ether/submit/submit_list.dart';
+import 'package:ether/submit/submit_list_2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -34,7 +35,7 @@ class _EtherHomeState extends State<EtherHome> {
                   );
                 },
                 child: Container(
-                  width: 350,
+                  width: 380,
                   padding: EdgeInsets.only(
                     left: 20,
                     right: 20,
@@ -45,8 +46,11 @@ class _EtherHomeState extends State<EtherHome> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       SvgPicture.asset('assets/1.svg',
-                          height: 100,
+                          height: 140,
                           semanticsLabel: 'Acme Logo',
+                      ),
+                      SizedBox(
+                        width: 10,
                       ),
                       Flexible(
                         child: Text(
@@ -63,7 +67,7 @@ class _EtherHomeState extends State<EtherHome> {
               ),
             ),
             SizedBox(
-              width: 20,
+              width: 10,
             ),
             Card(
               elevation: 5,
@@ -74,7 +78,7 @@ class _EtherHomeState extends State<EtherHome> {
                   );
                 },
                 child: Container(
-                  width: 350,
+                  width: 380,
                   padding: EdgeInsets.only(
                     left: 20,
                     right: 20,
@@ -85,13 +89,57 @@ class _EtherHomeState extends State<EtherHome> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       SvgPicture.asset(
-                          'assets/2.svg',
-                          height: 100,
+                          'assets/svg/5.svg',
+                          height: 140,
                           semanticsLabel: 'Acme Logo',
                       ),
                       Flexible(
                         child: Text(
                           'Submit Form',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.blue[900],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              width: 10,
+            ),
+            Card(
+              elevation: 5,
+              child: InkWell(
+                onTap: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => EtherFormsList_2())
+                  );
+                },
+                child: Container(
+                  width: 380,
+                  padding: EdgeInsets.only(
+                    left: 20,
+                    right: 20,
+                    top: 10,
+                    bottom: 10,
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      SvgPicture.asset(
+                        'assets/svg/4.svg',
+                        height: 140,
+                        semanticsLabel: 'Acme Logo',
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Flexible(
+                        child: Text(
+                          'View Form Data',
                           style: TextStyle(
                             fontSize: 20,
                             color: Colors.blue[900],

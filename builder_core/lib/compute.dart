@@ -7,7 +7,7 @@ class Compute {
   static getUniqueKey() {
     // var uuid = Uuid();
     // return uuid.v1();
-    return (_salt++);
+    return (_salt++).toString();
   }
 
 }

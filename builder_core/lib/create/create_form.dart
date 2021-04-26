@@ -147,14 +147,11 @@ class AppState extends State<EtherBuilder> {
                 controller: _formTitle,
                 decoration: new InputDecoration(
                   focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                        width:2,
-                      color: Colors.blue
-                    ),
+                    borderSide: BorderSide(width: 2, color: Colors.blue),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                        width: 2,
+                      width: 2,
                     ),
                   ),
                   hintText: 'Form title',
@@ -256,8 +253,8 @@ class AppState extends State<EtherBuilder> {
                                         Text('Basic setting'),
                                         TextField(
                                           controller: _labelEditor,
-                                          decoration:
-                                              InputDecoration(labelText: 'Label'),
+                                          decoration: InputDecoration(
+                                              labelText: 'Label'),
                                         ),
                                         SizedBox(
                                           height: 40,
@@ -286,7 +283,8 @@ class AppState extends State<EtherBuilder> {
                                                 onDiscard();
                                               },
                                               style: ElevatedButton.styleFrom(
-                                                primary: Colors.red, // background
+                                                primary:
+                                                    Colors.red, // background
                                                 onPrimary:
                                                     Colors.white, // foreground
                                               ),
@@ -416,20 +414,14 @@ class AppState extends State<EtherBuilder> {
                   children: [
                     ElevatedButton(
                       onPressed: () {
-
+                        onCreateNewForm();
                       },
                       child: Container(
                         padding: EdgeInsets.only(
-                          left: 20,
-                          right: 20,
-                          top: 10,
-                          bottom: 10
-                        ),
+                            left: 20, right: 20, top: 10, bottom: 10),
                         child: Text(
-                            'Create Form',
-                          style: TextStyle(
-                            fontSize: 18
-                          ),
+                          'Create Form',
+                          style: TextStyle(fontSize: 18),
                         ),
                       ),
                     ),
@@ -447,15 +439,25 @@ class AppState extends State<EtherBuilder> {
   }
 
   onCreateNewForm() async {
-
     // Validation
     if (_formTitle.text.length == 0) {
-      Toaster.e(message: '')
+      Toaster.e(context, message: 'Please enter the Form title');
+      return;
     }
 
-    var response = await dio.get('/forms', queryParameters: {});
+    var response = await dio.post(
+      '/forms',
+      data: {
+        'formTitle': _formTitle.text.toString(),
+        'metaData': mainData,
+      },
+    );
     try {
       Log.i(response);
+      var rs = json.decode(response.data);
+      if (rs['status']) {
+        Navigator.of(context).pop(true);
+      }
     } catch (e, s) {
       Log.e(e, s);
     }
@@ -567,11 +569,8 @@ class AppState extends State<EtherBuilder> {
           log('clicked');
           onTapVessel(i);
         },
-        child: IgnorePointer(
-          ignoring: true,
-          child: VesselEditor(
-            data: mainData[i],
-          ),
+        child: VesselEditor(
+          data: mainData[i],
         ),
       ));
     }

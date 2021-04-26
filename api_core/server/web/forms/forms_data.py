@@ -23,7 +23,7 @@
 from ..lib.lib import *
 
 #@xenSecureV1
-class FormsHandler(tornado.web.RequestHandler, MongoMixin):
+class FormsDataHandler(tornado.web.RequestHandler, MongoMixin):
 
     SUPPORTED_METHODS = ('GET', 'POST', 'DELETE','PUT','OPTIONS')
 
@@ -47,6 +47,10 @@ class FormsHandler(tornado.web.RequestHandler, MongoMixin):
                     CONFIG['database'][1]['table'][1]['name']
                 ]
 
+    formsD = MongoMixin.serviceDb[
+                    CONFIG['database'][1]['table'][2]['name']
+                ]
+
 
     def options(self):
         self.set_status(200)
@@ -62,7 +66,11 @@ class FormsHandler(tornado.web.RequestHandler, MongoMixin):
         message = ''
 
         try:
-            fq = self.formsT.find()
+            fq = self.formsD.find(
+                        {
+                            'formId': ObjectId(self.get_arguments('id')[0])
+                        }
+                    )
             async for r in fq:
                 result.append(bdumps(r))
 
@@ -126,14 +134,16 @@ class FormsHandler(tornado.web.RequestHandler, MongoMixin):
         try:
             try:
                 # CONVERTS BODY INTO JSON
-                self.request.arguments = json.loads(self.request.body.decode())
+                self.request.arguments = bloads(self.request.body.decode())
             except Exception as e:
                 code = 4100
                 message = 'Expected Request Type JSON.'
                 raise Exception
             Log.i('test', self.request.arguments)
 
-            rs = await self.formsT.insert_one(
+            #Log.i(bloads(self.request.arguments))
+
+            rs = await self.formsD.insert_one(
                         self.request.arguments
                     )
             status = True
