@@ -84,7 +84,7 @@ class _EtherFormsListState extends State<EtherFormsList> {
     try {
       // forms = response.data['result'];
       for (int i = 0; i < response.data['result'].length; i++) {
-        // Log.i(response.data['result'][i].runtimeType);
+        // Log.i(response.data['result'][i].runtimeType)
         Map v = json.decode(response.data['result'][i]);
         // Log.i(v);
         forms.add(v);

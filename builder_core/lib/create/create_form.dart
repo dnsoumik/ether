@@ -103,21 +103,22 @@ class AppState extends State<EtherBuilder> {
           "label": "Toggle Button",
           "icon": "input",
           "eSelect": false,
+          'value': false,
           "id": Compute.getUniqueKey(),
           "children": [
-            {"text": "", "valueType": "string", "value": 19}
+            {"text": "", "valueType": "boolean", "value": false}
           ]
         },
-        {
-          "eId": "progressbar",
-          "label": "Progressbar",
-          "icon": "input",
-          "eSelect": false,
-          "id": Compute.getUniqueKey(),
-          "children": [
-            {"text": "", "valueType": "string", "value": 19}
-          ]
-        }
+        // {
+        //   "eId": "progressbar",
+        //   "label": "Progressbar",
+        //   "icon": "input",
+        //   "eSelect": false,
+        //   "id": Compute.getUniqueKey(),
+        //   "children": [
+        //     {"text": "", "valueType": "string", "value": 19}
+        //   ]
+        // }
       ]
     }
   ];

@@ -94,6 +94,34 @@ class _VesselState extends State<Vessel> {
           // });
         },
       );
+    } else if (data['eId'] == 'divider') {
+      widget.xController = '1';
+      vessel = Divider();
+    } else if (data['eId'] == 'toggle') {
+      // widget.xController = '1';
+      vessel = Container(
+        width: MediaQuery.of(context).size.width,
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  data['label'],
+                ),
+                Switch(
+                  value: data['value'],
+                  onChanged: (val) {
+                    data['value'] = val;
+                    setState(() {
+                    });
+                  },
+                ),
+              ],
+            ),
+          ],
+        ),
+      );
     }
 
     vessel = Container(
